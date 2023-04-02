@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <link rel="icon" type="image/x-icon" href="logosmall.png">
+    <title>CPU</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  <style>
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+    table{
+      color:white;
+      text-decoration-color: bisque;
+    }
+    li{
+      color:white;
+    }
+    th{
+      color:white;
+    }
+
+  </style>
+  <style>
+    body{
+        background-color: black;
+    }
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+    .slider {
+        width: 60vw;
+        height: 100vh;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .slides {
+        width: 800%;
+        height: 500px;
+        display: flex;
+    }
+    .slides input {
+        display: none;
+    }
+    .slide {
+        width: 20%;
+        transition: 2s;
+    }
+    .slide img {
+        width: 800px;
+        height: 500px;
+    }
+    
+    /*manual slide navigation*/
+    
+    .navigation-manual {
+        position: absolute;
+        width: 800px;
+        margin-top: -40px;
+        display: flex;
+        justify-content: center;
+    }
+    .manual-btn {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+    }
+    .manual-btn:not(:last-child) {
+        margin-right: 40px;
+    }
+    
+    .manual-btn:hover {
+        background: white;
+    }
+    
+    #radio1:checked ~ .first {
+        margin-left: 0;
+    }
+    
+    #radio2:checked ~ .first {
+        margin-left: -20%;
+    }
+    
+    #radio3:checked ~ .first {
+        margin-left: -40%;
+    }
+    
+    #radio4:checked ~ .first {
+        margin-left: -60%;
+    }
+    #radio5:checked ~ .first {
+      margin-left: -80%;
+    }
+    #radio6:checked ~ .first {
+      margin-left: -100%;
+    }
+    #radio7:checked ~ .first {
+      margin-left: -120%;
+    }
+    
+    /**auto navigation**/
+    .navigation-auto {
+        position: absolute;
+        display: flex;
+        width: 800px;
+        justify-content: center;
+        margin-top: 460px;
+    }
+    .navigation-auto div {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        transition: 1s;
+    }
+    
+    .navigation-auto div:not(:last-child) {
+        margin-right: 40px; 
+    }
+    
+    #radio1:checked ~ .navigation-auto .auto-btn1 {
+        background: white;
+    }
+    #radio2:checked ~ .navigation-auto .auto-btn2 {
+        background: white;
+    }
+    #radio3:checked ~ .navigation-auto .auto-btn3 {
+        background: white;
+    }
+    #radio4:checked ~ .navigation-auto .auto-btn4 {
+        background: white;
+    }
+    #radio5:checked ~ .navigation-auto .auto-btn5 {
+      background: white;
+  }
+    
+    
+    /*Button on image*/
+    
+    button{
+        padding: 2%;
+        transition: 1s;
+    }
+    
+    /**Stylying button*/
+    
+    /**Main part**/
+    #main {
+        vertical-align: middle;
+        display: inline;
+    }
+    #main h1 { 
+        font-size: 24px; font-weight:400; 
+        color:black; 
+        padding:0; 
+        margin:0;
+    }
+    
+    #main .main-content {
+        background: white; 
+        padding: 60px; 
+        width: 60vw; 
+        left:50%;
+    }
+    #main .main-content-gray {
+        background: #f2f2f2;
+        padding: 60px;
+    }
+    a{
+        text-align: center;
+        align-self: center;
+        text-decoration: none;
+    }
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand" href="#"><img src="logosmall.png" alt="PRIME SYSTEMS"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="final.html">Home <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactme.html">Contact Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="assignmentform.html">Feedback</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="motherboard.html">Motherboard</a>
+                <a class="dropdown-item" href="cpu.html">CPU[Processor]</a>
+                <a class="dropdown-item" href="gpu.html">GPU[Graphics Card]</a>
+                <a class="dropdown-item" href="ram.html"> RAM[Memory]</a>
+                <a class="dropdown-item" href="storage.html">Storage Device [SSD,NVME SSD,HDD]</a>
+                <a class="dropdown-item" href="cooling.html">Cooling[CPU, Chassis]</a>
+                <a class="dropdown-item" href="psu.html">PSU[Power Supply Unit]</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+            PSU
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>The Power Supply Unit (PSU) might not be the most frequently discussed PC component, but it’s a critical piece of any desktop. Supplying power to your entire system is an extremely important role, and using the wrong one could be costly.</p>
+            <p>That’s why we’re going to cover the basics of power supplies, and provide you with the information you need to understand why having the right PSU is important, and why simply settling for the cheapest option is not the best solution.</p>
+</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="true" aria-controls="flush-collapse2">
+            Get Connected
+          </button>
+        </h2>
+        <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>Get Connected</h2>
+<p>Let’s kick things off by going over the different cables power supplies use to provide power to your system.</p>
+<p>Though the PSU you purchase should come with all of the cables you need, it’s worth knowing what the individual connections look like. The exact cables you’ll use will vary depending on the specifics of your build, but you’ll most likely be dealing with the following:</p>
+<ul>
+<li><b>24-pin Motherboard:&nbsp;</b>The way power is allocated varies from motherboard to motherboard, but the 24-pin connector/cable is frequently used to power important features such as the chipset and PCIe*</li>
+</ul>
+<ul>
+<li><b>4/8-pin CPU:&nbsp;</b>This connector provides power to your CPU. Modern CPUs draw more power than the 24-pin motherboard configuration can provide, which is why the additional 4/8 pin cable came into use. Though it can vary depending on the manufacturer, the CPU cable usually plugs into the top left side of the motherboard, near the I/O on a standard layout</li>
+</ul>
+<ul>
+<li><b>6/8 pin (PCIe*/GPU):&nbsp;</b>Some GPUs draw enough power from the PCIe* slot, while others require a specific power cable configuration to operate properly. Most PSUs address this required flexibility by providing cables that can be used in a variety of combinations, some of which include 6, 8, 6+6, 8+6, and 8+8, and even 8+8+8 pin connectors. PSUs will often provide multiple connections on a single cable to avoid having to run additional wires, and for the vast majority of users, this will function the same as running multiple cables. Be sure to double-check that your power supply has the connections you need for your GPU before purchasing</li>
+</ul>
+<ul>
+<li><b>SATA Power:&nbsp;</b>This connector is used to provide power to SATA storage devices. Other devices have since adopted the standard as well, such as RGB hubs and fan controllers. Many PSUs have multiple SATA connections on one cable to reduce the amount of cables required</li>
+</ul>
+<ul>
+<li><b>4-pin Molex</b>: This is an increasingly rare legacy connector that has mostly been replaced by SATA. Molex connectors are usually found on less common accessories, such as water cooling pumps</li>
+</ul>
+<img src="https://www.intel.com/content/dam/www/central-libraries/us/en/images/4-8-pin-cpu-connector-rwd.png.rendition.intel.web.480.270.png" alt="">
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="true" aria-controls="flush-collapse3">
+            How Many Watts?
+          </button>
+        </h2>
+        <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>How Many Watts?</h2>
+<p>When selecting a new PSU, one of the most common questions asked is, “How many watts is enough?” As is often the case in the world of PC hardware, the answer varies widely depending on the unique needs of your system.</p>
+<p>Generally, more complex systems require more power to run. A desktop with a custom liquid cooling loop, a high-end motherboard, and dual GPUs is going to need a higher wattage computer power supply than a simpler system.</p>
+<p>It’s impossible to give an exact recommendation without knowing specifically what hardware you’re working with, but using a <a href="https://outervision.com/power-supply-calculator">PSU Wattage Calculator</a>, or determining the power draw of your different internal components and adding that together, can give insight into how many watts you need.</p>
+<p>As a general rule, it’s better to err on the side of higher wattage rather than trying to match your needs exactly. If you’ve calculated that your system is going to use 500 watts (a common number for a straightforward gaming build), choosing a PSU with 600 or 650-watt output could be a good option, as it will give you some overhead to work with, and also allow for potential future upgrades.</p>
+<p>Keep this in mind when considering higher wattage PSUs: a 750-watt power supply does not consume 750 watts by default. If your system is drawing 500 watts, your power supply will supply 500 watts, regardless of maximum capable output. Higher wattage output doesn’t necessarily mean more energy consumed; it means it has the ability to provide more power if your system demands it. That said, there’s no real advantage to having a vastly overpowered PSU if your system doesn’t need it, so you might be better served selecting a feature-rich, high-efficiency PSU that is closer to the wattage you require.</p>
+<p>You’ll also want to consider the continuous power versus the peak power capabilities of your new PSU. Peak power is the maximum amount of power the PSU can output for short periods of time, whereas continuous power refers to the amount of power the PSU is designed to output on a regular basis. Peak power is usually reached when pushing your system to its limits, like when you’re running demanding games or performing hardware benchmarks.</p>
+<p>If there is a sudden demand for more power, your PSU should be able to handle the higher output briefly, but should not be expected to run at those higher wattages continuously. Always make sure the PSU you purchase has sufficiently high continuous power output, and don’t choose solely by peak power capabilities.</p>
+
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="true" aria-controls="flush-collapse4">
+            Protection
+          </button>
+        </h2>
+        <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>Protection</h2>
+<p>As you'd expect from anything that deals with large amounts of power, system safety is a concern. A good power supply should have fail-safes built in — not just to protect the PSU itself, but also to keep your system safe in case of something unexpected, like a power surge.</p>
+<p>The power supply and the motherboard are the only PC components that directly connect to almost every other piece of hardware in your system. Because of the unique position of the PSU in the PC’s layout, making sure it has built-in protection can help keep the rest of your hardware safe as well.</p>
+<p>It’s worth noting whether the power supply you’re looking at has built-in protection, like OVP (Over Voltage Protection), which shuts down the PSU if excessive voltage is detected. Other safety features include functions like short circuit protection, which can be hugely beneficial if you encounter power fluctuations.</p>
+<p>You’ll also want to plug in your PC to a surge protector. These hardware-saving devices are designed to add another layer of protection to your system by diverting potentially damaging power surges away from your valuable components.</p>
+<p></p>
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="true" aria-controls="flush-collapse5">
+            MOUNTING
+          </button>
+        </h2>
+        <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>Features to look out for when buying a pc case</h2>
+<p>Drive bays and SSD mounting points: With recent trends towards using NVMe SSDs, room for large physical drives are less necessary with modern cases. Many people still use traditional SATA-based SSDs or hard drives, though. If that’s part of your build, make sure a PC case has enough 2.5-inch and 3.5-inch drive bays to house your storage drives. Some cases include mounting points for SSD on the rear of the motherboard tray, too. And if you need a 5.25-inch bay in the front of your PC to house an optical drive, fan controller, or whatever, confirm your case includes that. A number of cases have been ditching 5.25-inch bays to improve airflow from the front-side fan(s)—most notably several Corsair cases.</p>
+<p>Tool-less design: In the olden days, practically everything in a PC case required a Phillips screwdriver. No more. Tool-less design is nearly universal in mid-range and high-end cases, with thumb screws for internal fastening and twist-on, snap-on, or otherwise tool-free mechanisms in drive bays.</p>
+<p>Cable management: Look for a case with cut-outs in the motherboard tray, which allow you to route your cabling through the rear of your case. Out of sight, out of mind. Budget PC cases tend to have simple giant holes punched in the motherboard tray, while mid-range options frequently include rubber grommets in the holes to tidy things up even more. Some cases include tie-off points or even wire covers behind the motherboard tray to keep your cabling clean.</p>
+<img src="cable management.png" alt="">
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading6">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="true" aria-controls="flush-collapse6">
+            Consider Efficiency
+          </button>
+        </h2>
+        <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>Consider Efficiency</h2>
+<p>Wattage is certainly an important consideration when choosing a desktop power supply, but so is PSU efficiency. Inefficient delivery leads to wasted power and more heat, which can potentially decrease the lifespan of your components.</p>
+<p>Because this is such an important consideration, there’s a relatively straightforward <a href="https://en.wikipedia.org/wiki/80_Plus">independent rating system in place</a>. You might have noticed the “80 Plus” rating on many power supplies, often listed alongside a precious metal. To receive this rating, a power supply must be at least 80 percent efficient, meaning that a maximum of 20 percent of power is lost as heat.</p>
+<p>This efficiency rating is determined by performance in a 115-volt system, and the ratings are further increased as you go up the ladder of precious metals.</p>
+<p>These include:</p>
+<ul>
+<li>80 PLUS<br>
+</li>
+<li>80 PLUS Bronze</li>
+<li>80 PLUS Silver</li>
+<li>80 PLUS Gold</li>
+<li>80 PLUS Platinum</li>
+<li>80 PLUS Titanium</li>
+</ul>
+<p>The more efficient your PSU, the less power it uses, and the less heat it generates. That said, higher efficiency usually means a higher price, so you’ll want to find the balance that works for you.</p>
+<p>Even the most efficient PSU will still generate heat, however, and most use fans to disperse that heat. Many power supplies are designed so that the fan will only turn on when it needs to — that is, when the PSU hits a certain threshold. Features like these help to reduce noise.</p>
+<p>For those who are interested in taking things to the very edge of practicality, there are even liquid-cooled power supplies for a truly silent experience.</p>
+    <img src="https://www.intel.com/content/dam/www/central-libraries/us/en/images/metal-efficiency-chart-rwd.png.rendition.intel.web.480.270.png" alt="">
+</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading7">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="true" aria-controls="flush-collapse7">
+            Form Factor and Cabling Preferences
+          </button>
+        </h2>
+        <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading7" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>Form Factor and Cabling Preferences</h2>
+<p>As with most PC hardware, there's a huge variety of options when it comes to what your power supply looks like.</p>
+<p>One consideration when it comes to PSU form factor is the physical size of the unit. For the vast majority of desktop PC users, standard ATX power supplies should be fine, though you’ll still want to make sure your PSU will fit in your case by checking the appropriate clearances.</p>
+<p>If you’re a small form factor PC (SFF) enthusiast, you’ll want to do a little more research to make sure your PSU will fit. There is a wide variety of SFF PSU sizes, like SFX, CFX, and more, so make sure you find the PSU that works with your case, no matter how small your PC.</p>
+<p>Another important distinction when it comes to the physical attributes of your PSU is whether it’s modular or non-modular.<br>
+</p>
+<p>A power supply operates by converting energy from a wall socket and routing that power to each of the individual components in your system through a variety of cables. If your power supply is non-modular, these cables will already be soldered to the circuit board, meaning you don’t get to choose the cables that will be in your build. All the cabling, even the ones that you don’t use, will need to be stored in your case.</p>
+<p>There’s nothing inherently wrong with this from a functional perspective, though poor cable management can lead to less efficient airflow, so you’ll want to be sure those extra cables don’t get in the way.</p>
+<p>Modular power supplies, on the other hand, don’t come with the cables attached. This changes the installation process, as you’ll need to connect each cable to the PSU and the component that it is powering, but that also means you can optimize for fewer cables. This results in a cleaner build and potentially better airflow. Most people aren’t going to use every connector provided by the average power supply, which makes modular units a little more practical, as well.</p>
+<p>There’s also a third, in-between option, creatively called a semi-modular power supply. These are exactly what they sound like: Some of the most frequently used cables are attached to the PSU, while some you’ll have to connect yourself.</p>
+<p>For modular and semi-modular power systems, keep in mind that you do not want to mix and match cables from other manufacturers, or even different models from the same manufacturer, unless stated otherwise. Though the cable-ends that connect to the components in your build are standardized, the end that connects to the PSU isn’t, meaning different brands could have different connections. That’s why you should only use the cables that came with your power supply.</p>
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading8">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse8" aria-expanded="true" aria-controls="flush-collapse8">
+            FRONT
+          </button>
+        </h2>
+        <div id="flush-collapse8" class="accordion-collapse collapse" aria-labelledby="flush-heading8" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>Front-panel connectivity: If you’ve got a lot of external devices, check out the front-panel connectivity of the PC case. Even cheap cases have a couple of USB-A Type 2.0 ports in the front. Many modern cases include USB-A Type 3, USB-C, and even fan or RGB lighting controllers as table stakes. You’ll often find front-panel audio jacks as well, though we’d always recommend plugging your headset directly into the audio jack on your motherboard’s rear I/O shield.</p>
+<p>Fans and airflow: The more fans you have in your PC, the better your airflow is likely to be. At the very least, you want two fans for optimal airflow—an intake in the front and an outward-blowing fan in the rear. Some budget PC cases include only a single fan, and your PC’s temperatures and performance will suffer for it. Even if they aren’t populated, many cases include additional fan mounts that allow you to upgrade your cooling later. As mentioned before, some cases are ditching 5.25-inch drive bays to remove airflow obstructions for the front fans, though you obviously wouldn’t want a case like that if you needed one of those bays.</p>
+<p>Dust filters: Keeping your PC clean is important. A computer clogged with dust and pet hair and tobacco gunk is a computer that runs hot and throttles more often. Dust filters keep most of that debris from ever reaching your fans, much less your precious internal hardware. But be sure to configure your fans for positive air pressure to keep dust from being sucked in through the unoccupied vents in your chassis.</p>
+<p>Sound-dampening: Soundproof cases keep your rig running quiet, often by using sound-dampening materials inside the panels of your PC. Those materials keep noise in but also tend to impede airflow, so soundproof cases often hit somewhat higher temperatures than standard cases. Some nicer soundproof cases manage to stay silent while also optimizing for airflow by including large 140mm fans spinning at low (and hence quiet) speeds.</p>
+<p>Water-cooling support: The rise of sealed all-in-one coolers have made liquid-cooling more popular than ever. If you plan to water-cool your PC, pay fine attention to the support provided by your case. You probably won’t be able to use liquid-cooling whatsoever in most mini-ITX cases, and many mid-tower cases only support up to 240mm radiators—and placement of that liquid-cooling radiator may be limited to only the top or bottom of the case, depending on the case’s dimensions.</p>
+<img src="https://www.intel.com/content/dam/www/central-libraries/us/en/images/1-modular-and-semimodular-psu-rwd.png.rendition.intel.web.480.270.png" alt="">
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading9">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse9" aria-expanded="true" aria-controls="flush-collapse9">
+            Premium Power
+          </button>
+        </h2>
+        <div id="flush-collapse9" class="accordion-collapse collapse" aria-labelledby="flush-heading9" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>Premium Power</h2>
+            <p>PC building is all about customization, and power supplies are no exception. In addition to everything we’ve discussed, there are a huge selection of additional features you can get from premium power supplies. Features like RGB lighting, additional connections, testing buttons, and power draw measurements via internal USB connections are luxuries more than necessities, but they are options if you’re interested.</p>
+            <p>An interesting aftermarket enhancement to consider is custom power supply cable sleeving. These custom cables allow the user to decide the color and material of their power cables, which adds a further level of customization to your build. This is purely aesthetic, but it’s another way to add some flair to a sometimes overlooked component.</p>
+            <h2>Power On</h2>
+            <p>Choosing your power supply should not be an afterthought.</p>
+            <p>Selecting the right one for your system should entail more than simply finding the highest amount of watts for the cheapest price. You need to consider form factor, efficiency, amperage, protection, and the cables you’re going to need, along with any other features you are looking for.</p>
+            <p>A good power supply can last for many years and can have a huge impact on the efficiency of your PC, so take the time to choose wisely.</p>
+            <p>Your PC will thank you for it.</p>
+    </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="slides">
+          <input type="radio" name="radio-btn" id="radio1">
+          <input type="radio" name="radio-btn" id="radio2">
+          <input type="radio" name="radio-btn" id="radio3">
+          <input type="radio" name="radio-btn" id="radio4">
+          <input type="radio" name="radio-btn" id="radio5">
+          <input type="radio" name="radio-btn" id="radio6">
+          <input type="radio" name="radio-btn" id="radio7">
+
+      <!--Slide images begin-->
+          <div class="slide first">
+              <a href="cpu.html"><img src="cpu2.png" alt="CPU"></a>
+          </div>
+          <div class="slide second">
+              <a href="gpu.html"><img src="gpu2.png" alt="GPU"></a>
+          </div>
+          <div class="slide third">
+              <a href="case.html"><img src="pc case2.png" alt="case"></a>
+          </div>
+          <div class="slide forth">
+              <a href="psu.html"></a><img src="psu2.png" alt="psu">
+          </div>
+          <div class="slide fifth">
+            <a href="motherboard.html"></a><img src="motherboard2.png" alt="psu">
+        </div>
+        <div class="slide sixth">
+          <a href="storage.html"></a><img src="storage2.png" alt="psu">
+      </div>
+      <div class="slide seveth">
+        <a href="ram.html"></a><img src="ram2.png" alt="psu">
+    </div>
+              
+      <!--Automatic navigation statrt-->
+          <div class="navigation-auto">
+              <div class="auto-btn1"></div>
+              <div class="auto-btn2"></div>
+              <div class="auto-btn3"></div>
+              <div class="auto-btn4"></div>
+              <div class="auto-btn5"></div>
+              <div class="auto-btn6"></div>
+              <div class="auto-btn7"></div>
+          </div>
+
+      </div>
+  <!--Manual navigation starts-->
+      <div class="navigation-manual">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+          <label for="radio4" class="manual-btn"></label>
+          <label for="radio5" class="manual-btn"></label>
+          <label for="radio6" class="manual-btn"></label>
+          <label for="radio7" class="manual-btn"></label>
+      </div>
+
+      
+  </div>
+</div>
+  <script>
+  //image slider
+var counter = 1;
+setInterval(function(){
+document.getElementById('radio' + counter).checked = true;
+counter++;
+if(counter > 4){
+counter = 1;
+}
+},5000);
+
+window.addEventListener('scroll', function(){
+const header = document.querySelector('header');
+header.classList.toggle('sticky', window.scrollY > 0);
+})
+</script>
+  </body>
+</html>

@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <link rel="icon" type="image/x-icon" href="logosmall.png">
+    <title>CPU</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  <style>
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+    table{
+      color:white;
+      text-decoration-color: bisque;
+    }
+    li{
+      color:white;
+    }
+    th{
+      color:white;
+    }
+
+  </style>
+  <style>
+    body{
+        background-color: black;
+    }
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+    .slider {
+        width: 60vw;
+        height: 100vh;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .slides {
+        width: 800%;
+        height: 500px;
+        display: flex;
+    }
+    .slides input {
+        display: none;
+    }
+    .slide {
+        width: 20%;
+        transition: 2s;
+    }
+    .slide img {
+        width: 800px;
+        height: 500px;
+    }
+    
+    /*manual slide navigation*/
+    
+    .navigation-manual {
+        position: absolute;
+        width: 800px;
+        margin-top: -40px;
+        display: flex;
+        justify-content: center;
+    }
+    .manual-btn {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+    }
+    .manual-btn:not(:last-child) {
+        margin-right: 40px;
+    }
+    
+    .manual-btn:hover {
+        background: white;
+    }
+    
+    #radio1:checked ~ .first {
+        margin-left: 0;
+    }
+    
+    #radio2:checked ~ .first {
+        margin-left: -20%;
+    }
+    
+    #radio3:checked ~ .first {
+        margin-left: -40%;
+    }
+    
+    #radio4:checked ~ .first {
+        margin-left: -60%;
+    }
+    #radio5:checked ~ .first {
+      margin-left: -80%;
+    }
+    #radio6:checked ~ .first {
+      margin-left: -100%;
+    }
+    #radio7:checked ~ .first {
+      margin-left: -120%;
+    }
+    
+    /**auto navigation**/
+    .navigation-auto {
+        position: absolute;
+        display: flex;
+        width: 800px;
+        justify-content: center;
+        margin-top: 460px;
+    }
+    .navigation-auto div {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        transition: 1s;
+    }
+    
+    .navigation-auto div:not(:last-child) {
+        margin-right: 40px; 
+    }
+    
+    #radio1:checked ~ .navigation-auto .auto-btn1 {
+        background: white;
+    }
+    #radio2:checked ~ .navigation-auto .auto-btn2 {
+        background: white;
+    }
+    #radio3:checked ~ .navigation-auto .auto-btn3 {
+        background: white;
+    }
+    #radio4:checked ~ .navigation-auto .auto-btn4 {
+        background: white;
+    }
+    #radio5:checked ~ .navigation-auto .auto-btn5 {
+      background: white;
+  }
+    
+    
+    /*Button on image*/
+    
+    button{
+        padding: 2%;
+        transition: 1s;
+    }
+    
+    /**Stylying button*/
+    
+    /**Main part**/
+    #main {
+        vertical-align: middle;
+        display: inline;
+    }
+    #main h1 { 
+        font-size: 24px; font-weight:400; 
+        color:black; 
+        padding:0; 
+        margin:0;
+    }
+    
+    #main .main-content {
+        background: white; 
+        padding: 60px; 
+        width: 60vw; 
+        left:50%;
+    }
+    #main .main-content-gray {
+        background: #f2f2f2;
+        padding: 60px;
+    }
+    a{
+        text-align: center;
+        align-self: center;
+        text-decoration: none;
+    }
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand" href="#"><img src="logosmall.png" alt="PRIME SYSTEMS"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="final.html">Home <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactme.html">Contact Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="assignmentform.html">Feedback</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="motherboard.html">Motherboard</a>
+                <a class="dropdown-item" href="cpu.html">CPU[Processor]</a>
+                <a class="dropdown-item" href="gpu.html">GPU[Graphics Card]</a>
+                <a class="dropdown-item" href="ram.html"> RAM[Memory]</a>
+                <a class="dropdown-item" href="storage.html">Storage Device [SSD,NVME SSD,HDD]</a>
+                <a class="dropdown-item" href="cooling.html">Cooling[CPU, Chassis]</a>
+                <a class="dropdown-item" href="psu.html">PSU[Power Supply Unit]</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+            CASE
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>No matter whether you treat your computer as the centerpiece of your home office or just stuff it under your desk, buying the right PC case matters.</p>
+  <img src="pc case.png" alt="">
+</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="true" aria-controls="flush-collapse2">
+            SIZE
+          </button>
+        </h2>
+        <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>At a minimum, you want to pick a PC case that’s the right size for your needs and has room for all your hardware and USB devices. But some PC cases offer much, much more. Spacious innards, lower temperatures, muffled sound, extensive water-cooling support, and fancy-schmancy tempered glass panels or RGB lighting are just the tip of the iceberg.</p>
+<h2>SIZE MATTERS</h2>
+<img src="pccase.png" alt=""> </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="true" aria-controls="flush-collapse3">
+            TOWERS
+          </button>
+        </h2>
+        <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>Before anything else, decide what size case you need. There are three major case sizes: Full tower, mid-tower, and mini-ITX.</p>
+<P> Full-tower and mid-tower cases both fit standard ATX motherboards—by far the most common motherboard size out there. Both can also fit smaller micro-ATX motherboards. Exact sizing varies from case to case, but most mid-towers run up to roughly 18 inches high and 8 or so inches wide. Mid-tower PCs are probably the most common form factor and have enough room to fit systems with a closed-loop CPU cooler, a couple of graphics cards, and a lot of storage.</p>
+<p>Full-tower cases are massive. They often measure more than 20 inches in height and are longer and deeper than mid-tower cases, which makes them ideal if you’re one of the rare people using a massive Extended-ATX motherboard. </p>
+<p>Also consider a full-tower case if you plan on loading up your rig with extensive (or custom) water-cooling, storage galore, or 3- and 4-way graphics card setups. Full-tower cases often support more fans and 5.25-inch drive bays as well. And the extra elbow room sure is nice during building.</p>
+<p>Mini-ITX cases are the polar opposite of full-tower PC cases, built for diminutive mini-ITX motherboards. Some of these can be wondrously small and even fit inside home theater cabinets, but the tight quarters can create compatibility issues with some hardware. Don’t expect to use liquid-cooling or a big honking CPU cooler in most mini-ITX cases. Some mini-ITX cases don’t support full-length graphics cards, either; confirm the maximum length before you buy. Finally, there isn’t much room for extra hardware in these space-constrained chassis, so you’ll be limited to fairly basic system configurations. They’re great for schlepping to LAN parties, though!</p>
+<img src="mini itx.png" alt="">
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="true" aria-controls="flush-collapse4">
+            PRICE
+          </button>
+        </h2>
+        <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>price Considerations</h2>
+<p>Once you’ve decided how big of a PC case you need, the next step is figuring out your budget.</p>
+<p>If you’re spending $50 or less, you’re probably going to wind up with a bare-bones, nondescript case with few extra features. Try to pick one that has two fans, one in the front of the case and another in the rear, for maximized air-flow, which helps cooling. You won’t always find the option in this price range, though.</p>
+<p>Things open up in the $50 to $150-ish price range, which has seen a lot of advancement over the past few years. You’ll find a lot of variance in both design and construction in the midrange. As always, be sure to check measurements to ensure your desired PC case can fit all your hardware, and you’ll also want to keep an eye on extra features. They’re a lot more common in this price range, especially as you move up in cost.</p>
+<p>Features purely come down to personal preference or specifics needed for your build. Some cases are built with more fans for higher performance; others focus on silent design. Some—most notably much of Corsair’s case lineup—even eliminate 5.25-inch drive bays completely for better airflow. You’ll start to find water-cooling compatibility worked into some cases in this price range, along with better cable management details, tool-less design, and aesthetic niceties like RGB lighting or tempered-glass side panels. We’ll get into feature details shortly, but around $100 is the sweet spot for price-to-performance when it comes to buying a PC case.</p>
+<p>Once you extend beyond $150 or so, you should expect a PC case that excels in both performance and acoustics, and one that comes with connectivity options and handy features galore. Some of them are huge; this is where you’ll find most full-tower cases. Build materials tend to be swankier in high-end cases, with aluminum and tempered glass being much more common than in budget and mid-range cases.</p>
+<h2>PC case aesthetics</h2>
+<p>It is very importan that you are satisfied with the look of the pc you are buying. You are going are going to stare at it for years to come , every online retailer shows pc cases form multiple angles on their store pages so there is no excuse for buying a "ugly looking case" </p>
+<P>PC Cases come in different colors, sizes, with or without fans, some have LED lights some don’t, some have glass side panels, some others look absolutely crazy.</p>\
+<img src="pc case3.png" alt="">
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="true" aria-controls="flush-collapse5">
+            MOUNTING
+          </button>
+        </h2>
+        <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>Features to look out for when buying a pc case</h2>
+<p>Drive bays and SSD mounting points: With recent trends towards using NVMe SSDs, room for large physical drives are less necessary with modern cases. Many people still use traditional SATA-based SSDs or hard drives, though. If that’s part of your build, make sure a PC case has enough 2.5-inch and 3.5-inch drive bays to house your storage drives. Some cases include mounting points for SSD on the rear of the motherboard tray, too. And if you need a 5.25-inch bay in the front of your PC to house an optical drive, fan controller, or whatever, confirm your case includes that. A number of cases have been ditching 5.25-inch bays to improve airflow from the front-side fan(s)—most notably several Corsair cases.</p>
+<p>Tool-less design: In the olden days, practically everything in a PC case required a Phillips screwdriver. No more. Tool-less design is nearly universal in mid-range and high-end cases, with thumb screws for internal fastening and twist-on, snap-on, or otherwise tool-free mechanisms in drive bays.</p>
+<p>Cable management: Look for a case with cut-outs in the motherboard tray, which allow you to route your cabling through the rear of your case. Out of sight, out of mind. Budget PC cases tend to have simple giant holes punched in the motherboard tray, while mid-range options frequently include rubber grommets in the holes to tidy things up even more. Some cases include tie-off points or even wire covers behind the motherboard tray to keep your cabling clean.</p>
+<img src="cable management.png" alt="">
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading6">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse6" aria-expanded="true" aria-controls="flush-collapse6">
+            CUTTING
+          </button>
+        </h2>
+        <div id="flush-collapse6" class="accordion-collapse collapse" aria-labelledby="flush-heading6" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>CPU cooler cut-away: Speaking of the motherboard tray, some nicer PC cases include large cut-outs in the section behind your processor, which let you replace your PC’s CPU or CPU cooler without ripping out your entire motherboard. It’s not a feature you’re likely to need often, but if you do, it’s a godsend.</p>
+            <img src="cpu cooler.png" alt="">
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading7">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse7" aria-expanded="true" aria-controls="flush-collapse7">
+            CUTTING
+          </button>
+        </h2>
+        <div id="flush-collapse7" class="accordion-collapse collapse" aria-labelledby="flush-heading7" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>CPU cooler cut-away: Speaking of the motherboard tray, some nicer PC cases include large cut-outs in the section behind your processor, which let you replace your PC’s CPU or CPU cooler without ripping out your entire motherboard. It’s not a feature you’re likely to need often, but if you do, it’s a godsend.</p>
+            <img src="cpu cooler.png" alt="">
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading8">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse8" aria-expanded="true" aria-controls="flush-collapse8">
+            FRONT
+          </button>
+        </h2>
+        <div id="flush-collapse8" class="accordion-collapse collapse" aria-labelledby="flush-heading8" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>Front-panel connectivity: If you’ve got a lot of external devices, check out the front-panel connectivity of the PC case. Even cheap cases have a couple of USB-A Type 2.0 ports in the front. Many modern cases include USB-A Type 3, USB-C, and even fan or RGB lighting controllers as table stakes. You’ll often find front-panel audio jacks as well, though we’d always recommend plugging your headset directly into the audio jack on your motherboard’s rear I/O shield.</p>
+<p>Fans and airflow: The more fans you have in your PC, the better your airflow is likely to be. At the very least, you want two fans for optimal airflow—an intake in the front and an outward-blowing fan in the rear. Some budget PC cases include only a single fan, and your PC’s temperatures and performance will suffer for it. Even if they aren’t populated, many cases include additional fan mounts that allow you to upgrade your cooling later. As mentioned before, some cases are ditching 5.25-inch drive bays to remove airflow obstructions for the front fans, though you obviously wouldn’t want a case like that if you needed one of those bays.</p>
+<p>Dust filters: Keeping your PC clean is important. A computer clogged with dust and pet hair and tobacco gunk is a computer that runs hot and throttles more often. Dust filters keep most of that debris from ever reaching your fans, much less your precious internal hardware. But be sure to configure your fans for positive air pressure to keep dust from being sucked in through the unoccupied vents in your chassis.</p>
+<p>Sound-dampening: Soundproof cases keep your rig running quiet, often by using sound-dampening materials inside the panels of your PC. Those materials keep noise in but also tend to impede airflow, so soundproof cases often hit somewhat higher temperatures than standard cases. Some nicer soundproof cases manage to stay silent while also optimizing for airflow by including large 140mm fans spinning at low (and hence quiet) speeds.</p>
+<p>Water-cooling support: The rise of sealed all-in-one coolers have made liquid-cooling more popular than ever. If you plan to water-cool your PC, pay fine attention to the support provided by your case. You probably won’t be able to use liquid-cooling whatsoever in most mini-ITX cases, and many mid-tower cases only support up to 240mm radiators—and placement of that liquid-cooling radiator may be limited to only the top or bottom of the case, depending on the case’s dimensions.</p>
+<img src="watercooled.png" alt="">
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading9">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse9" aria-expanded="true" aria-controls="flush-collapse9">
+            GLASS
+          </button>
+        </h2>
+        <div id="flush-collapse9" class="accordion-collapse collapse" aria-labelledby="flush-heading9" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <p>Tempered-glass panels: Many newer PC cases include panels consisting entirely of tempered glass, presenting an unfettered look at your PC’s inner hardware, albeit at the cost of air flow. It’s gorgeous, but brittle—handle with care! You’ll start to find tempered-glass options around the $70 range, though they’re more common around $100.</p>
+<p>integrated lighting: Customizable RGB lighting is a big craze in recent years, and that includes PC cases. You either love RGB or you hate RGB. Either way, it’s easy to find cases that meet your aesthetic tastes. </p>
+<img src="integrated light .png" alt="">
+<p>Some Cases that are extremely popular and often recommended are the NZXT H510 – ATX Mid-Tower or Lian Li O11 DYNAMIC.</p>
+
+<table border="1"class="table">
+  <th>Case</th><th>features</th><th>where to buy</th>
+   <tr>
+     <td><p>NZXT H510</p></td><td><ul>
+
+     </ul><li>With a USB 3.1 Gen2-compatible USB-C connector on the front panel, it’s easier than ever to connect smartphones, high-speed external storage, or the latest peripherals to your PC</li>
+<li>The clean, modern design, iconic cable management bar, and uninterrupted tempered-glass side panel showcase your stunning build.</li>
+<li>Cable management can often take more time than assembly. We designed a cable routing kit with pre-installed channels and straps, for intuitive and easy wiring.</li>
+<li>Two Aer F120mm fans* are included for optimal internal airflow and the front panel and PSU intakes include removable filters. Includes a removable bracket designed for radiators up to 280mm simplifies the installation of either closed-loop or custom-loop water cooling.</li><p> a more detailed review u can visit <a href="https://latestintech.com/nzxt-h510-mid-tower-case-review/"target="blank">here</a></p></td>
+ </ul>
+ <td><p>Click <a href="https://nzxt.com/collection/h510"target="blank">here</a> to buy</p></td></tr>
+ <tr>
+   <td><p>Lian Li O11 DYNAMIC</p></td><td><p>One of the main features of the 011 Dynamic is to showboat your hardware with the side and front tempered glass panels. All too easily the guts of your custom PC will be on display. Naturally, that’s not the limit to this case. It’s built plenty tough with alloy steel. Instead of holes all over the place, the cut-outs have covers to help hide and protect your cables. The coolest part is in the customizing options. Custom loop builders can go nuclear in knowing there’s plenty of space for almost everything! Even as is, you can have one very sweet-looking PC on your hands.To find out more you can Click <a href="https://www.tomshardware.com/reviews/lian-li-pc-o11-dynamic-case,5570.html"target="blank">here</a></p></td><td><p>Click <a href="https://www.amazon.sg/dp/B07F9TC5W7?geniuslink=true"target="blank">here</a> to buy</p> </td>
+ </tr>
+</table>
+
+    </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="slides">
+          <input type="radio" name="radio-btn" id="radio1">
+          <input type="radio" name="radio-btn" id="radio2">
+          <input type="radio" name="radio-btn" id="radio3">
+          <input type="radio" name="radio-btn" id="radio4">
+          <input type="radio" name="radio-btn" id="radio5">
+          <input type="radio" name="radio-btn" id="radio6">
+          <input type="radio" name="radio-btn" id="radio7">
+
+      <!--Slide images begin-->
+          <div class="slide first">
+              <a href="cpu.html"><img src="cpu2.png" alt="CPU"></a>
+          </div>
+          <div class="slide second">
+              <a href="gpu.html"><img src="gpu2.png" alt="GPU"></a>
+          </div>
+          <div class="slide third">
+              <a href="case.html"><img src="pc case2.png" alt="case"></a>
+          </div>
+          <div class="slide forth">
+              <a href="psu.html"></a><img src="psu2.png" alt="psu">
+          </div>
+          <div class="slide fifth">
+            <a href="motherboard.html"></a><img src="motherboard2.png" alt="psu">
+        </div>
+        <div class="slide sixth">
+          <a href="storage.html"></a><img src="storage2.png" alt="psu">
+      </div>
+      <div class="slide seveth">
+        <a href="ram.html"></a><img src="ram2.png" alt="psu">
+    </div>
+              
+      <!--Automatic navigation statrt-->
+          <div class="navigation-auto">
+              <div class="auto-btn1"></div>
+              <div class="auto-btn2"></div>
+              <div class="auto-btn3"></div>
+              <div class="auto-btn4"></div>
+              <div class="auto-btn5"></div>
+              <div class="auto-btn6"></div>
+              <div class="auto-btn7"></div>
+          </div>
+
+      </div>
+  <!--Manual navigation starts-->
+      <div class="navigation-manual">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+          <label for="radio4" class="manual-btn"></label>
+          <label for="radio5" class="manual-btn"></label>
+          <label for="radio6" class="manual-btn"></label>
+          <label for="radio7" class="manual-btn"></label>
+      </div>
+
+      
+  </div>
+</div>
+  <script>
+  //image slider
+var counter = 1;
+setInterval(function(){
+document.getElementById('radio' + counter).checked = true;
+counter++;
+if(counter > 4){
+counter = 1;
+}
+},5000);
+
+window.addEventListener('scroll', function(){
+const header = document.querySelector('header');
+header.classList.toggle('sticky', window.scrollY > 0);
+})
+</script>   
+  </body>
+</html>

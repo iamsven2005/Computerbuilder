@@ -1,0 +1,378 @@
+<!doctype html>
+       <html lang="en">
+         <head>
+    
+    <link rel="icon" type="image/x-icon" href="logosmall.png">
+           <title>MOTHERBOARD</title>
+           <!-- Required meta tags -->
+           <meta charset="utf-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       
+           <!-- Bootstrap CSS v5.2.0-beta1 -->
+           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+           <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+       
+           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+         <style>
+           p{
+            color:white
+           }
+           .collapsed{
+             background-color: black;
+           }
+           h2{
+             color:white;
+           }
+           .accordion-button{
+             background-color: black;
+             color:white;
+           }
+           .accordion-collapse{
+             background-color: black;
+           }
+           td{
+            color:white;
+           }
+           th{
+            color:white;
+          }
+         </style>
+         <style>
+          body{
+              background-color: black;
+          }
+          p{
+           color:white
+          }
+          .collapsed{
+            background-color: black;
+          }
+          h2{
+            color:white;
+          }
+          .accordion-button{
+            background-color: black;
+            color:white;
+          }
+          .accordion-collapse{
+            background-color: black;
+          }
+          .slider {
+              width: 60vw;
+              height: 100vh;
+              border-radius: 10px;
+              overflow: hidden;
+              margin-left: auto;
+              margin-right: auto;
+          }
+          .slides {
+              width: 800%;
+              height: 500px;
+              display: flex;
+          }
+          .slides input {
+              display: none;
+          }
+          .slide {
+              width: 20%;
+              transition: 2s;
+          }
+          .slide img {
+              width: 800px;
+              height: 500px;
+          }
+          
+          /*manual slide navigation*/
+          
+          .navigation-manual {
+              position: absolute;
+              width: 800px;
+              margin-top: -40px;
+              display: flex;
+              justify-content: center;
+          }
+          .manual-btn {
+              border: 2px solid white;
+              padding: 5px;
+              border-radius: 10px;
+              cursor: pointer;
+              transition: 1s;
+          }
+          .manual-btn:not(:last-child) {
+              margin-right: 40px;
+          }
+          
+          .manual-btn:hover {
+              background: white;
+          }
+          
+          #radio1:checked ~ .first {
+              margin-left: 0;
+          }
+          
+          #radio2:checked ~ .first {
+              margin-left: -20%;
+          }
+          
+          #radio3:checked ~ .first {
+              margin-left: -40%;
+          }
+          
+          #radio4:checked ~ .first {
+              margin-left: -60%;
+          }
+          #radio5:checked ~ .first {
+            margin-left: -80%;
+          }
+          #radio6:checked ~ .first {
+            margin-left: -100%;
+          }
+          #radio7:checked ~ .first {
+            margin-left: -120%;
+          }
+          
+          /**auto navigation**/
+          .navigation-auto {
+              position: absolute;
+              display: flex;
+              width: 800px;
+              justify-content: center;
+              margin-top: 460px;
+          }
+          .navigation-auto div {
+              border: 2px solid white;
+              padding: 5px;
+              border-radius: 10px;
+              transition: 1s;
+          }
+          
+          .navigation-auto div:not(:last-child) {
+              margin-right: 40px; 
+          }
+          
+          #radio1:checked ~ .navigation-auto .auto-btn1 {
+              background: white;
+          }
+          #radio2:checked ~ .navigation-auto .auto-btn2 {
+              background: white;
+          }
+          #radio3:checked ~ .navigation-auto .auto-btn3 {
+              background: white;
+          }
+          #radio4:checked ~ .navigation-auto .auto-btn4 {
+              background: white;
+          }
+          #radio5:checked ~ .navigation-auto .auto-btn5 {
+            background: white;
+        }
+          
+          
+          /*Button on image*/
+          
+          button{
+              padding: 2%;
+              transition: 1s;
+          }
+          
+          /**Stylying button*/
+          
+          /**Main part**/
+          #main {
+              vertical-align: middle;
+              display: inline;
+          }
+          #main h1 { 
+              font-size: 24px; font-weight:400; 
+              color:black; 
+              padding:0; 
+              margin:0;
+          }
+          
+          #main .main-content {
+              background: white; 
+              padding: 60px; 
+              width: 60vw; 
+              left:50%;
+          }
+          #main .main-content-gray {
+              background: #f2f2f2;
+              padding: 60px;
+          }
+          a{
+              text-align: center;
+              align-self: center;
+              text-decoration: none;
+          }
+        </style>
+         </head>
+         <body>
+           <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+               <div class="container">
+               <a class="navbar-brand" href="#"><img src="logosmall.png" alt="PRIME SYSTEMS"></a>
+               <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                 aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="collapsibleNavId">
+                 <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                   <li class="nav-item active">
+                     <a class="nav-link" href="final.html">Home <span class="visually-hidden">(current)</span></a>
+                   </li>
+                   <li class="nav-item">
+                     <a class="nav-link" href="contactme.html">Contact Me</a>
+                   </li>
+                   <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                     <div class="dropdown-menu" aria-labelledby="dropdownId">
+                       <a class="dropdown-item" href="motherboard.html">Motherboard</a>
+                       <a class="dropdown-item" href="cpu.html">CPU[Processor]</a>
+                       <a class="dropdown-item" href="gpu.html">GPU[Graphics Card]</a>
+                       <a class="dropdown-item" href="ram.html"> RAM[Memory]</a>
+                       <a class="dropdown-item" href="storage.html">Storage Device [SSD,NVME SSD,HDD]</a>
+                       <a class="dropdown-item" href="cooling.html">Cooling[CPU, Chassis]</a>
+                       <a class="dropdown-item" href="psu.html">PSU[Power Supply Unit]</a>
+                     </div>
+                   </li>
+                 </ul>
+               </div>
+             </div>
+           </nav>
+           <div class="accordion accordion-flush" id="accordionFlushExample">
+             <div class="accordion-item">
+               <h2 class="accordion-header" id="flush-headingOne">
+                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                   MOTHERBOARD
+                 </button>
+               </h2>
+               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                 <div class="accordion-body">
+                  <p>The official motherboard definition is that it’s the main printed circuit board within a computer, which means it’s the primary piece of circuitry that all of the other pieces plug into to create a cohesive whole.
+                    The motherboard is the backbone that ties the computer’s components together at one spot and allows them to talk to each other. Without it, none of the computer pieces, such as the CPU, GPU, or hard drive, could interact. Total motherboard functionality is necessary for a computer to work well. If your motherboard is on the fritz, expect some big problems.</p>
+                         <p>Here are some recommended motherboards in relation to price and brand of cpu that is used.</p>
+                         <img src="pc motherboard.png" alt="">
+                         <p>If you have a specific budget in mind, here’s a list of good motherboards that will help you get the most out of your brand-new Intel processor.</p>
+                         <table border="1">
+                          <th>price</th><th>motherboard</th><th>alternatives</th><th>reviews</th>
+                         <tr>
+                           <td>Under $150</td><td>ASRock B560M Pro 4</td><td>NIL</td><td> Shopping for a motherboard in this tier is not recommended for Core i7 and above.</td>
+                         </tr>
+                           <tr>
+                             <td>Under $200</td><td>Gigabyte Z590 UD</td><td>ASUS ROG Strix B560-A Gaming Wi-Fi</td><td>both motherboards are quite compelling at this price range so either of them will serve you well.</td>
+                    
+                           </tr>
+                           <tr>
+                             <td>Under $250</td><td>Gigabyte Z590 Aorus Elite</td><td>NIL</td><td>would recommend either shopping above this budget or below the budget as this budget is a very weird figure</td>
+                           </tr>
+                           <tr>
+                             <td>Under $300</td><td>Gigabyte Z590 Aorus Ultra</td><td>NIL</td><td>the best price to performance motherboard</td>
+                             </tr>
+                             <tr>
+                               <td>Under $400</td><td>Gigabyte Z590 Vision D <br>MSI MPG Z590 Gaming Force <br>MSI MPG Z590 Gaming Carbon</td><td>NIL</td><td>if your are going to run multiple gpus in the pc i would recommend taking Gigabyte Z590 Vision D</td>
+                             </tr>
+                         </table>
+                        </div>
+               </div>
+             </div>
+             <div class="accordion-item">
+               <h2 class="accordion-header" id="flush-heading2">
+                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="true" aria-controls="flush-collapse2">
+                   BUDGET
+                 </button>
+               </h2>
+               <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+                 <div class="accordion-body">
+                  <p>If you have a specific budget in mind, here’s a list of good motherboards that will help you get the most out of your brand-new AMD processor.</p>
+                  <table border="1">
+                   <th>price</th><th>motherboard</th><th>Link</th>
+                   <tr><td>Under $100</td><td>MSI B450 Tomahawk MAX (ATX)</td><td><a href="https://www.amazon.com/MSI-Crossfire-Motherboard-B450-Tomahawk/dp/B07WF6ZQST?SubscriptionId=AKIAILFAVZOSNHLC35ZA&tag=cgdirector-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B07WF6ZQST&th=1">Buy</a></td></tr>
+                    
+                    <tr>
+                      <td>Under $200</td><td>Gigabyte X570 Aorus Elite (ATX)
+                       ASUS X570 TUF Gaming (ATX)</td><td><a href="https://www.amazon.com/Gigabyte-X570-AORUS-802-11AC-Motherboard/dp/B07WL5MFXL/ref=as_li_ss_tl?ref_=ast_sto_dp&linkCode=ll1&tag=cgdirector-20&linkId=3661a4e80ebad8a5a4552fb2c56e8287&language=en_US">Buy</a></td>
+                    <tr>
+                      <td>Under $350</td><td> ASRock X570 Steel Legend</td><td><a href="https://www.lazada.sg/products/asrock-amd-ryzen-3000-series-cpu-soket-am4-corresponding-x570-chipset-atx-motherboard-x570-steel-legend-i1590886802-s7490786977.html">Buy</a></td>
+                    <tr>
+                      <td>under $400</td><td>ASUS ROG X570 Crosshair VIII Hero (ATX)</td><td><a href="https://www.amazon.com/ASUS-Crosshair-Motherboard-Integrated-Lighting/dp/B07SYW3RT2?SubscriptionId=AKIAILFAVZOSNHLC35ZA&tag=cgdirector-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B07SYW3RT2&th=1">Buy</a></td>
+                      <tr>
+                        <td>under $500</td><td>MSI Prestige X570 CREATION (E-ATX)</td> <td><a href="https://www.amazon.com/MSI-Prestige-X570-Motherboard-Extended-ATX/dp/B07T5QFXFY?SubscriptionId=AKIAILFAVZOSNHLC35ZA&tag=cgdirector-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B07T5QFXFY">Buy</a></td>
+                  </table>  </div>
+               </div>
+             </div>
+           </div>
+           <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <input type="radio" name="radio-btn" id="radio5">
+                <input type="radio" name="radio-btn" id="radio6">
+                <input type="radio" name="radio-btn" id="radio7">
+    
+            <!--Slide images begin-->
+                <div class="slide first">
+                    <a href="cpu.html"><img src="cpu2.png" alt="CPU"></a>
+                </div>
+                <div class="slide second">
+                    <a href="gpu.html"><img src="gpu2.png" alt="GPU"></a>
+                </div>
+                <div class="slide third">
+                    <a href="case.html"><img src="pc case2.png" alt="case"></a>
+                </div>
+                <div class="slide forth">
+                    <a href="psu.html"></a><img src="psu2.png" alt="psu">
+                </div>
+                <div class="slide fifth">
+                  <a href="motherboard.html"></a><img src="motherboard2.png" alt="psu">
+              </div>
+              <div class="slide sixth">
+                <a href="storage.html"></a><img src="storage2.png" alt="psu">
+            </div>
+            <div class="slide seveth">
+              <a href="ram.html"></a><img src="ram2.png" alt="psu">
+          </div>
+                    
+            <!--Automatic navigation statrt-->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                    <div class="auto-btn5"></div>
+                    <div class="auto-btn6"></div>
+                    <div class="auto-btn7"></div>
+                </div>
+    
+            </div>
+        <!--Manual navigation starts-->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+                <label for="radio5" class="manual-btn"></label>
+                <label for="radio6" class="manual-btn"></label>
+                <label for="radio7" class="manual-btn"></label>
+            </div>
+    
+            
+        </div>
+    </div>
+        <script>
+        //image slider
+var counter = 1;
+setInterval(function(){
+document.getElementById('radio' + counter).checked = true;
+counter++;
+if(counter > 4){
+    counter = 1;
+}
+},5000);
+
+window.addEventListener('scroll', function(){
+const header = document.querySelector('header');
+header.classList.toggle('sticky', window.scrollY > 0);
+})
+</script>
+         </body>
+       </html>       

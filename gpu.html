@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <link rel="icon" type="image/x-icon" href="logosmall.png">
+    <title>GPU</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  <style>
+    
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+  </style>
+  <style>
+    body{
+        background-color: black;
+    }
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+    .slider {
+        width: 60vw;
+        height: 100vh;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .slides {
+        width: 800%;
+        height: 500px;
+        display: flex;
+    }
+    .slides input {
+        display: none;
+    }
+    .slide {
+        width: 20%;
+        transition: 2s;
+    }
+    .slide img {
+        width: 800px;
+        height: 500px;
+    }
+    
+    /*manual slide navigation*/
+    
+    .navigation-manual {
+        position: absolute;
+        width: 800px;
+        margin-top: -40px;
+        display: flex;
+        justify-content: center;
+    }
+    .manual-btn {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+    }
+    .manual-btn:not(:last-child) {
+        margin-right: 40px;
+    }
+    
+    .manual-btn:hover {
+        background: white;
+    }
+    
+    #radio1:checked ~ .first {
+        margin-left: 0;
+    }
+    
+    #radio2:checked ~ .first {
+        margin-left: -20%;
+    }
+    
+    #radio3:checked ~ .first {
+        margin-left: -40%;
+    }
+    
+    #radio4:checked ~ .first {
+        margin-left: -60%;
+    }
+    #radio5:checked ~ .first {
+      margin-left: -80%;
+    }
+    #radio6:checked ~ .first {
+      margin-left: -100%;
+    }
+    #radio7:checked ~ .first {
+      margin-left: -120%;
+    }
+    
+    /**auto navigation**/
+    .navigation-auto {
+        position: absolute;
+        display: flex;
+        width: 800px;
+        justify-content: center;
+        margin-top: 460px;
+    }
+    .navigation-auto div {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        transition: 1s;
+    }
+    
+    .navigation-auto div:not(:last-child) {
+        margin-right: 40px; 
+    }
+    
+    #radio1:checked ~ .navigation-auto .auto-btn1 {
+        background: white;
+    }
+    #radio2:checked ~ .navigation-auto .auto-btn2 {
+        background: white;
+    }
+    #radio3:checked ~ .navigation-auto .auto-btn3 {
+        background: white;
+    }
+    #radio4:checked ~ .navigation-auto .auto-btn4 {
+        background: white;
+    }
+    #radio5:checked ~ .navigation-auto .auto-btn5 {
+      background: white;
+  }
+    
+    
+    /*Button on image*/
+    
+    button{
+        padding: 2%;
+        transition: 1s;
+    }
+    
+    /**Stylying button*/
+    
+    /**Main part**/
+    #main {
+        vertical-align: middle;
+        display: inline;
+    }
+    #main h1 { 
+        font-size: 24px; font-weight:400; 
+        color:black; 
+        padding:0; 
+        margin:0;
+    }
+    
+    #main .main-content {
+        background: white; 
+        padding: 60px; 
+        width: 60vw; 
+        left:50%;
+    }
+    #main .main-content-gray {
+        background: #f2f2f2;
+        padding: 60px;
+    }
+    a{
+        text-align: center;
+        align-self: center;
+        text-decoration: none;
+    }
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand" href="#"><img src="logosmall.png" alt="PRIME SYSTEMS"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="final.html">Home <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactme.html">Contact Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="assignmentform.html">Feedback</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="motherboard.html">Motherboard</a>
+                <a class="dropdown-item" href="cpu.html">CPU[Processor]</a>
+                <a class="dropdown-item" href="gpu.html">GPU[Graphics Card]</a>
+                <a class="dropdown-item" href="ram.html"> RAM[Memory]</a>
+                <a class="dropdown-item" href="storage.html">Storage Device [SSD,NVME SSD,HDD]</a>
+                <a class="dropdown-item" href="cooling.html">Cooling[CPU, Chassis]</a>
+                <a class="dropdown-item" href="psu.html">PSU[Power Supply Unit]</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+            GPU(Graphics processing unit
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h1>GPU(Graphics processing unit</h1>
+<img src="gpu2.png" alt=""> 
+<p>Getting the best graphics card is key if you're looking to buy the best gaming PC or looking to build a PC on your own. The graphics card is even more important than the CPU. Unfortunately, the process of figuring out how to buy a GPU can be intimidating. There's so much to consider, from the type of monitor you're using to the size of your PC case to the game settings you plan to play at.</p>
+<h2>Quick tips</h2>
+<p>Save some money for the CPU. If you spend all your money on graphics and don't opt for one of the best CPUs, your system might score well on synthetic benchmarks but won't do as well in real game play (due to lower minimum frame rates).</p>
+<p>Match your monitor resolution. Many mainstream cards are sufficient for gaming at 1080p resolutions at between 30-60 fps, but you'll need a high-end card for resolutions at or near 4K resolution with high in-game settings on the most demanding titles. So be sure to pair your GPU with the best gaming monitor for your needs</p>
+<p>Consider your refresh rate. If your monitor has triple-digit refresh rates, you'll need a powerful card and processor to reach its full potential. Alternatively, if your monitor tops out at 60Hz and 1080p, there's no point in paying extra for a powerful card that pushes pixels faster than your display can keep up with.</p>
+<p>Do you have enough power and space? Make sure your PC case has enough room for the card you're considering, and that your power supply has enough watts to spare, along with the correct type of power connectors (up to three 8-pin PCIe, depending on the card).</p>
+<p>Check the MSRP before buying. A good way to tell if you're getting a deal is to check the launch price or MSRP of the card you're considering before buying. Tools like <a href="https://camelcamelcamel.com">CamelCamelCamel</a>  can help separate the real deals from the fake mark-up-then-discount offerings.</p>
+ </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="true" aria-controls="flush-collapse2">
+            AMD or NIVIDIA?
+          </button>
+        </h2>
+        <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>AMD or NIVIDIA?</h2>
+<img src="amdvsnividia.png" alt="">  
+<p>There are hundreds of graphics cards from dozens of manufacturers, but only two companies actually make the GPUs that power these components: Nvidia and AMD — though Intel's Xe Graphics has started to ship for laptops and should also come to desktops in the next few months. With its RX 6000 cards, AMD is more competitive than it has been in years with Nvidia and its current-gen Ampere cards, like the GeForce RTX 3080, in general performance.</p>
+<p> That said, the realistically lit elephant in the room that we've been ignoring thus-far is real-time ray tracing. Introduced as a major new feature with Nvidia's now previous-generation RTX 20-series cards, "Team Green" is now on its second generation RTX with 30-series GPUs. AMD ("Team Red") stepped into this game in a big way in 2020 with its RX 6000 cards, but it's still on its first go-round with real-time ray tracing, and so lags behind Nvidia on this front.</p>  
+<p> Still, the rollout of games that make use of (and specifically good use of) ray tracing has been slow. There's no doubt that more games are adding RT support — and many more will in the future as ray tracing is also supported by the Sony PlayStation 5 and Microsoft Series S|X consoles. At present, the list of games with what we would categorize as impressive use of ray tracing remains relatively limited.</p>
+ <p>In most cases with Intel boards, upgrading to another chip that works in the same socket as your current one will have limited upside. In recent years, chip sockets or chipsets are only compatible for a generation or two of CPU, and once that year or two passes, the next platform is no longer compatible with the ones that came before. (Late-model mainstream AMD CPUs, on the company's AM4 socket, have broken that cycle for the moment.) What that means: Unless you're upgrading from a low-end chip early in a platform's lifecycle to a high-end CPU at the very end, you're not likely to gain too much from an in-place CPU upgrade on a dead-end platform.</p>
+            </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="true" aria-controls="flush-collapse3">
+            AMD vs NIVIDIA Gaming performance
+          </button>
+        </h2>
+        <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>AMD vs NIVIDIA Gaming performance</h2>
+<p>For decades, faster GPUs have enabled game developers to create increasingly detailed and complex worlds. While you can find everything from budget GPUs to high-end offerings from both AMD and Nvidia, when it comes to outright performance, Nvidia has a slight overall lead thanks to the chunky GeForce RTX 3090 Ti.</p>
+<p>Beyond the pole position, however, it's a closer match. If you look at the GPU benchmarks hierarchy, you'll see that AMD's RX 6950 XT owns the top spot at 1080p and 1440p, and Nvidia only wins at 4K or in ray tracing games. Of the top ten fastest GPUs, four are AMD and six are Nvidia, but part of that is thanks to quantity rather than truly different GPUs — the RTX 3080 12GB takes a bit of RTX 3080 Ti and a bit of RTX 3080 and mixes them together into a card that ended up matching the 3080 Ti at a lower price point.</p>
+<img src="benchtest.png" alt=""> 
+<P>This is just an example of the few factors that could affect one's choice in buying a gpu. For further insights you could head to <a href="https://www.tomshardware.com/features/amd-vs-nvidia-gpus">toms's hardware </a>to find out more.</P>
+
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="true" aria-controls="flush-collapse4">
+            How much can you spend?
+          </button>
+        </h2>
+        <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>How much can you spend?</h2>
+            <p>The price of video cards varies greatly, with super low-end cards starting under $100 and high-end models going for $2,000 or more in the case of the GeForce RTX 3090 Ti. As is often the case, top-end cards aren't worth the money unless for some reason you absolutely have to have the best performance possible, or if you do professional work where 10% more performance will pay for itself over time.</p>
+            <p>Dropping a tier or two down will greatly improve the bang for the buck. Currently, for example, an RTX 3080 12GB can be had for about $1,000. That's half as much as the RTX 3090 Ti, for about 15% less performance on average. The same goes for the AMD side. The RX 6900 XT(opens in new tab) costs about $1,050 while the RX 6700 XT(opens in new tab) can be had for half that much. There's no question about the 6900 being faster, but is it worth paying double the price? Only you can decide. </p>
+            <h2>How to buy a GPU:Which specs matter and which don't</h2>
+<p>Graphics card memory amount: Critical. Get a card with at least 6GB, and preferably 8GB or more for gaming at 1080p. You'll need more memory if you play with all the settings turned up or you install high-resolution texture packs. And if you're gaming at very high resolutions such as 4K, more than 8GB is ideal.</p>
+<p>Form factor: Very important. You need to make sure you have room in your case for your card. Look at the length, height, and thickness. Graphics cards can come in half-height (slim), single-slot, dual-slot, and even triple-slot flavors (or more). Most gaming-focused cards will be full-height and occupy two or more expansion slots, with current-gen cards being thicker and larger than many previous-gen models. Even if a card technically only takes up two slots in your case, if it has a big heatsink and fan shroud, it can block an adjacent slot. If you have a tiny Mini-ITX motherboard, look for a 'mini' card, which is generally 8 inches (205mm) long or less. However, some cards that carry this moniker are longer, so check the specs.</p>
+<p>Power Connectors: Important. All serious gaming cards draw more than the standard maximum of 75W that the x16 PCIe slot provides. These cards require connecting supplemental PCIe power connectors that come in 6- and 8-pin varieties. Nvidia's own RTX 30-series cards come with 12-pin connectors, but the cards also include 8-pin to 12-pin adapters. Some cards have one of these connectors, some two or even three, and 6- and 8-pin ports can exist on the same card. If your power supply doesn't have the supplemental connectors you need, you'll want to upgrade—adapters that draw power from a couple of SATA or Molex connectors are not recommended as long-term solutions.</p>
+<img src="connectors.png" alt=""> 
+<p>Ports: Critical. Some monitors have HDMI, others use DisplayPort, and some older units only have DVI. A few monitors also support USB Type-C routing DisplayPort signals, but these are relatively rare for the time being. Make sure the card you plan to buy has the connectors you need for your monitor(s), so you don't have to buy an adapter—or potentially a new display (unless you want to).</p>
+<p>Clock speed: Somewhat important. Among cards with the same GPU (ex: an RTX 3060 Ti), some will be manufacturer overclocked to a slightly higher speed, which can make a modest 3–5% difference in frame rates. Clock speed isn't everything, however, as memory speed, core counts and architecture need to be factored in. Better cooling often trumps clock speed as well, on cards with the same GPU.</p>
+
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading5">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse5" aria-expanded="true" aria-controls="flush-collapse5">
+            How much can you spend?
+          </button>
+        </h2>
+        <div id="flush-collapse5" class="accordion-collapse collapse" aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <h2>How to buy a GPU:Which specs matter and which don't</h2>
+            <p>Graphics card memory amount: Critical. Get a card with at least 6GB, and preferably 8GB or more for gaming at 1080p. You'll need more memory if you play with all the settings turned up or you install high-resolution texture packs. And if you're gaming at very high resolutions such as 4K, more than 8GB is ideal.</p>
+            <p>Form factor: Very important. You need to make sure you have room in your case for your card. Look at the length, height, and thickness. Graphics cards can come in half-height (slim), single-slot, dual-slot, and even triple-slot flavors (or more). Most gaming-focused cards will be full-height and occupy two or more expansion slots, with current-gen cards being thicker and larger than many previous-gen models. Even if a card technically only takes up two slots in your case, if it has a big heatsink and fan shroud, it can block an adjacent slot. If you have a tiny Mini-ITX motherboard, look for a 'mini' card, which is generally 8 inches (205mm) long or less. However, some cards that carry this moniker are longer, so check the specs.</p>
+            <p>Power Connectors: Important. All serious gaming cards draw more than the standard maximum of 75W that the x16 PCIe slot provides. These cards require connecting supplemental PCIe power connectors that come in 6- and 8-pin varieties. Nvidia's own RTX 30-series cards come with 12-pin connectors, but the cards also include 8-pin to 12-pin adapters. Some cards have one of these connectors, some two or even three, and 6- and 8-pin ports can exist on the same card. If your power supply doesn't have the supplemental connectors you need, you'll want to upgrade—adapters that draw power from a couple of SATA or Molex connectors are not recommended as long-term solutions.</p>
+            <img src="connectors.png" alt=""> 
+            <p>Ports: Critical. Some monitors have HDMI, others use DisplayPort, and some older units only have DVI. A few monitors also support USB Type-C routing DisplayPort signals, but these are relatively rare for the time being. Make sure the card you plan to buy has the connectors you need for your monitor(s), so you don't have to buy an adapter—or potentially a new display (unless you want to).</p>
+            <p>Clock speed: Somewhat important. Among cards with the same GPU (ex: an RTX 3060 Ti), some will be manufacturer overclocked to a slightly higher speed, which can make a modest 3–5% difference in frame rates. Clock speed isn't everything, however, as memory speed, core counts and architecture need to be factored in. Better cooling often trumps clock speed as well, on cards with the same GPU.</p>
+    </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="slides">
+          <input type="radio" name="radio-btn" id="radio1">
+          <input type="radio" name="radio-btn" id="radio2">
+          <input type="radio" name="radio-btn" id="radio3">
+          <input type="radio" name="radio-btn" id="radio4">
+          <input type="radio" name="radio-btn" id="radio5">
+          <input type="radio" name="radio-btn" id="radio6">
+          <input type="radio" name="radio-btn" id="radio7">
+
+      <!--Slide images begin-->
+          <div class="slide first">
+              <a href="cpu.html"><img src="cpu2.png" alt="CPU"></a>
+          </div>
+          <div class="slide second">
+              <a href="gpu.html"><img src="gpu2.png" alt="GPU"></a>
+          </div>
+          <div class="slide third">
+              <a href="case.html"><img src="pc case2.png" alt="case"></a>
+          </div>
+          <div class="slide forth">
+              <a href="psu.html"></a><img src="psu2.png" alt="psu">
+          </div>
+          <div class="slide fifth">
+            <a href="motherboard.html"></a><img src="motherboard2.png" alt="psu">
+        </div>
+        <div class="slide sixth">
+          <a href="storage.html"></a><img src="storage2.png" alt="psu">
+      </div>
+      <div class="slide seveth">
+        <a href="ram.html"></a><img src="ram2.png" alt="psu">
+    </div>
+              
+      <!--Automatic navigation statrt-->
+          <div class="navigation-auto">
+              <div class="auto-btn1"></div>
+              <div class="auto-btn2"></div>
+              <div class="auto-btn3"></div>
+              <div class="auto-btn4"></div>
+              <div class="auto-btn5"></div>
+              <div class="auto-btn6"></div>
+              <div class="auto-btn7"></div>
+          </div>
+
+      </div>
+  <!--Manual navigation starts-->
+      <div class="navigation-manual">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+          <label for="radio4" class="manual-btn"></label>
+          <label for="radio5" class="manual-btn"></label>
+          <label for="radio6" class="manual-btn"></label>
+          <label for="radio7" class="manual-btn"></label>
+      </div>
+
+      
+  </div>
+</div>
+  <script>
+  //image slider
+var counter = 1;
+setInterval(function(){
+document.getElementById('radio' + counter).checked = true;
+counter++;
+if(counter > 4){
+counter = 1;
+}
+},5000);
+
+window.addEventListener('scroll', function(){
+const header = document.querySelector('header');
+header.classList.toggle('sticky', window.scrollY > 0);
+})
+</script>
+  </body>
+</html>
+   

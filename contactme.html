@@ -1,0 +1,193 @@
+<!DOCTYPE hmtl>
+<html lang="en" dir="ltr">
+  <head>
+    
+    <link rel="icon" type="image/x-icon" href="logosmall.png">
+    <meta charset="utf-8">
+    <style>
+        *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ececec;
+    font-family: 'Poppins',sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #202035;
+    letter-spacing: 1.2px;
+}
+form{
+    width: 350px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    box-shadow:  -10px -10px 15px rgba(255,255,255,0.55),
+    10px 10px 15px rgba(70,70,70,0.12);
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+h6{
+    margin-bottom: 10px;
+    font: inherit;
+    text-transform: uppercase;
+}
+a.submit{
+    display: block;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+    font: inherit;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow:  -10px -10px 15px rgba(255,255,255,0.55),
+    10px 10px 15px rgba(70,70,70,0.12);
+}
+input[type="text"],
+input[type="password"],
+input[type="email"]{
+    margin-bottom: 25px;
+    border: none;
+    background-color: transparent;
+    box-shadow:  inset -10px -10px 15px rgba(255,255,255,0.55),
+    inset 10px 10px 15px rgba(70,70,70,0.12);
+    padding: 10px;
+    width: 90%;
+    border-radius: 7px;
+    outline: none;
+}
+::placeholder{
+    font-size: 12px;
+    font-weight: 500;
+    color: #ababab;
+    letter-spacing: 1.3px;
+}
+input[type="radio"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    height: 40px;
+    width: 120px;
+    box-shadow:  -10px -10px 15px rgba(255,255,255,0.55),
+    10px 10px 15px rgba(70,70,70,0.12);
+    border: 5px solid #ececec;
+    margin-right: 30px;
+    border-radius: 30px;
+    font: inherit;
+    outline: none;
+    cursor: pointer;
+}
+input[type="radio"]:after{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    color: #606060;
+    letter-spacing: 0.5px;
+}
+#developer:after{
+    content: "Developer";
+}
+#designer:after{
+    content: "Designer";
+}
+input[type="radio"]:checked,
+a:active{
+    box-shadow:  -10px -10px 15px rgba(255,255,255,0.55),
+    10px 10px 15px rgba(70,70,70,0.12),
+    inset -10px -10px 15px rgba(255,255,255,0.55),
+    inset 10px 10px 15px rgba(70,70,70,0.12);
+
+}
+input[type="radio"]:checked:after{
+    color: #15e38a;
+}
+      
+    </style>
+  </head>
+
+  <form id="survey-form" method="get" action="formresponse.html" class="login-box">
+    <br><br><br><br><br><br><br>
+    <h1 id="title">Contact Form</h1>
+<div id="form-outer">
+  <p id="description">
+    Contact
+  </p>
+  <div class="rowTab">
+   <div class="labels">
+     <label id="name-label" for="name">* Name: </label>
+     </div>
+     <div class="rightTab">
+        <input autofocus type="text" name="name" id="name" class="input-field user-box" placeholder="Enter your name" required>
+        </div>
+    </div>
+     <div class="rowTab">
+      <div class="labels">
+        <label id="email-label" for="email">* Email: </label>
+      </div>
+      <div class="rightTab">
+        <input type="email" name="email" id="email" class="input-field user-box" required placeholder="Enter your Email">
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label id="number-label" for="age">* Age: </label>
+      </div>
+      <div class="rightTab">
+        <input type="number" name="age" id="number" min="1" max="200" class="input-field user-box" placeholder="Age">
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label for="userRating">Would You Like Us To Give Daily Updates?</label>
+      </div>
+      <div class="rightTab">
+        <ul style="list-style: none;">
+          <li class="radio"><label>No<input name="radio-buttons" value="likely"  type="radio" class="userRatings" ></label></li>
+          <li class="radio"><label>Monthly<input name="radio-buttons" value="maybe"  type="radio" class="userRatings" ></label></li>
+          <li class="radio"><label>Daily<input name="radio-buttons" value="would not"  type="radio" class="userRatings" ></label></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label for="preferences">How Can We Contact You?<br>(Check all that apply): </label>
+      </div>
+      <div class="rightTab">
+        <ul id="preferences" style="list-style: none;">
+          <li class="checkbox"><label><input name="prefer" value="1" type="checkbox" class="userRatings">Whatsapp</label></li>
+          <li class="checkbox"><input name="prefer" value="2" type="checkbox" class="userRatings">Email</li>
+          <li class="checkbox"><label><input name="prefer" value="3" type="checkbox" class="userRatings">Call</label></li>
+          <li class="checkbox"><label><input name="prefer" value="4" type="checkbox" class="userRatings">Zoom</label></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rowTab">
+      <div class="labels">
+        <label for="comments">Any more feedback for us? Please type here!</label>
+      </div>
+      <div class="rightTab">
+        <textarea id="comments" class="input-field user-box" style="height:50px;resize:vertical;" name="comment" placeholder="Enter your comment here..."></textarea>
+      </div>
+    </div>
+  <button id="submit" type="submit">Submit</button>
+</form>
+<a class="back"href="final.html">BACK</a>
+</div>
+<style>
+    .back{
+        border-radius: 16px;
+        height:20px;
+        text-decoration: none;
+        width: 50px;
+    }
+    
+</style>
+</html>

@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <link rel="icon" type="image/x-icon" href="logosmall.png">
+    
+    <link rel="icon" type="image/x-icon" href="logosmall.png">
+    <title>STORAGE</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  <style>
+    body{
+      background-color: black;
+    }
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+    td{
+     color:white;
+    }
+    th{
+     color:white;
+   }
+  </style>
+  <style>
+    body{
+        background-color: black;
+    }
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+    .slider {
+        width: 60vw;
+        height: 100vh;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .slides {
+        width: 800%;
+        height: 500px;
+        display: flex;
+    }
+    .slides input {
+        display: none;
+    }
+    .slide {
+        width: 20%;
+        transition: 2s;
+    }
+    .slide img {
+        width: 800px;
+        height: 500px;
+    }
+    
+    /*manual slide navigation*/
+    
+    .navigation-manual {
+        position: absolute;
+        width: 800px;
+        margin-top: -40px;
+        display: flex;
+        justify-content: center;
+    }
+    .manual-btn {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+    }
+    .manual-btn:not(:last-child) {
+        margin-right: 40px;
+    }
+    
+    .manual-btn:hover {
+        background: white;
+    }
+    
+    #radio1:checked ~ .first {
+        margin-left: 0;
+    }
+    
+    #radio2:checked ~ .first {
+        margin-left: -20%;
+    }
+    
+    #radio3:checked ~ .first {
+        margin-left: -40%;
+    }
+    
+    #radio4:checked ~ .first {
+        margin-left: -60%;
+    }
+    #radio5:checked ~ .first {
+      margin-left: -80%;
+    }
+    #radio6:checked ~ .first {
+      margin-left: -100%;
+    }
+    #radio7:checked ~ .first {
+      margin-left: -120%;
+    }
+    
+    /**auto navigation**/
+    .navigation-auto {
+        position: absolute;
+        display: flex;
+        width: 800px;
+        justify-content: center;
+        margin-top: 460px;
+    }
+    .navigation-auto div {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        transition: 1s;
+    }
+    
+    .navigation-auto div:not(:last-child) {
+        margin-right: 40px; 
+    }
+    
+    #radio1:checked ~ .navigation-auto .auto-btn1 {
+        background: white;
+    }
+    #radio2:checked ~ .navigation-auto .auto-btn2 {
+        background: white;
+    }
+    #radio3:checked ~ .navigation-auto .auto-btn3 {
+        background: white;
+    }
+    #radio4:checked ~ .navigation-auto .auto-btn4 {
+        background: white;
+    }
+    #radio5:checked ~ .navigation-auto .auto-btn5 {
+      background: white;
+  }
+    
+    
+    /*Button on image*/
+    
+    button{
+        padding: 2%;
+        transition: 1s;
+    }
+    
+    /**Stylying button*/
+    
+    /**Main part**/
+    #main {
+        vertical-align: middle;
+        display: inline;
+    }
+    #main h1 { 
+        font-size: 24px; font-weight:400; 
+        color:black; 
+        padding:0; 
+        margin:0;
+    }
+    
+    #main .main-content {
+        background: white; 
+        padding: 60px; 
+        width: 60vw; 
+        left:50%;
+    }
+    #main .main-content-gray {
+        background: #f2f2f2;
+        padding: 60px;
+    }
+    a{
+        text-align: center;
+        align-self: center;
+        text-decoration: none;
+    }
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand" href="#"><img src="logosmall.png" alt="PRIME SYSTEMS"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="final.html">Home <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactme.html">Contact Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="assignmentform.html">Feedback</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="motherboard.html">Motherboard</a>
+                <a class="dropdown-item" href="cpu.html">CPU[Processor]</a>
+                <a class="dropdown-item" href="gpu.html">GPU[Graphics Card]</a>
+                <a class="dropdown-item" href="ram.html"> RAM[Memory]</a>
+                <a class="dropdown-item" href="storage.html">Storage Device [SSD,NVME SSD,HDD]</a>
+                <a class="dropdown-item" href="cooling.html">Cooling[CPU, Chassis]</a>
+                <a class="dropdown-item" href="psu.html">PSU[Power Supply Unit]</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <p>Because SSD flash memory can be written, transferred, and erased electronically, SSDs run much faster and more quietly than HDDs. But they’re also more expensive and have more limited storage capacity than HDDs. SSDs are often used on high-end machines or as secondary storage devices on consumer PCs.</p>
+    <h2 id="topic-2">What are solid-state drives used for?</h2>
+    <p>SSD adoption began in high-performance technology areas and in enthusiasts’ PCs, where the drives’ extremely low access times and high throughput justified the higher cost. But they have since become an accepted option -- or even the default choice -- in lower-cost mainstream laptops and PCs.</p>
+    <p><strong>SSDs have specific benefits in the following areas</strong>:</p>
+    <ul>
+    <li>
+    <p><strong>Business</strong>: Companies working with huge amounts of data (such as programming environments or data analysis) often rely on SSDs, as access times and file-transfer speeds are critical.</p>
+    </li>
+    <li>
+    <p><strong>Gaming</strong>: Gaming computers have always pressed the limits of current computing technology, justifying relatively expensive equipment for the benefit of gaming performance. That is particularly true for storage, as modern blockbuster games constantly load and write files (e.g. textures, maps, levels, characters).</p>
+    </li>
+    <li>
+    <p><strong>Mobility</strong>: SSDs have low power requirements, thus contributing to better battery life in laptops and tablets. SSDs are also shock resistant, which reduces the chances of data loss when mobile devices are dropped.</p>
+    </li>
+    <li>
+    <p><strong>Servers</strong>: Enterprise servers need SSDs to get fast reads and writes in order to properly serve their client PCs.</p>
+    </li>
+    </ul>
+    <p>To get a more comprehensive view of why it makes sense to get an <a href="c-ssd-vs-hdd" rel=" noopener">SSD over a HDD</a>, check out this article.</p>
+    <p><img loading="lazy" src="https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/Academy-What-is-SSD-Infographic.png?width=1321&amp;name=Academy-What-is-SSD-Infographic.png" alt="SSDs are a new generation of storage devices." width="1321" style="width: 1321px; margin: 5px auto 10px; display: block;" srcset="https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/Academy-What-is-SSD-Infographic.png?width=661&amp;name=Academy-What-is-SSD-Infographic.png 661w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/Academy-What-is-SSD-Infographic.png?width=1321&amp;name=Academy-What-is-SSD-Infographic.png 1321w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/Academy-What-is-SSD-Infographic.png?width=1982&amp;name=Academy-What-is-SSD-Infographic.png 1982w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/Academy-What-is-SSD-Infographic.png?width=2642&amp;name=Academy-What-is-SSD-Infographic.png 2642w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/Academy-What-is-SSD-Infographic.png?width=3303&amp;name=Academy-What-is-SSD-Infographic.png 3303w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/Academy-What-is-SSD-Infographic.png?width=3963&amp;name=Academy-What-is-SSD-Infographic.png 3963w" sizes="(max-width: 1321px) 100vw, 1321px"></p>
+    <h2 id="topic-3">What are the different types of SSDs</h2>
+    <p>When you shop for an SSD, you’ll encounter a number of different terms such as mSATA or PCIe. So what does it all mean? Here’s a primer on what you need to know.</p>
+    <p>To attach an SSD to your system, you need to connect it using a specific interface. Common interfaces are:</p>
+    <ul>
+    <li>
+    <p><strong>PCIe and NVMe SSDs</strong>: <em><span style="font-size: 18px;">PCI Express</span></em> (PCIe) is normally used to connect graphics cards, network cards, or other high-performance peripherals. This interface gives you high bandwidth and low latency, making it ideal when you need blazing-fast communication between the SSD and your CPU/RAM. SSDs that use this connection type are based on the <em><span style="font-size: 18px;">Nonvolatile Memory Express standard</span></em> (NVMe), which offers higher input output per second (IOPS) and even lower latency than SATA (which we’ll get to in a moment). NVMe boasts up to 16 GBits per second of raw throughput which, thanks to multiple parallel channels, runs at up to 4,000 MB per second.</p>
+    </li>
+    </ul>
+    <p><img loading="lazy" src="https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image2.png?width=500&amp;name=image2.png" alt="NVME SSD connected through the PCIe interface" style="width: 500px; display: block; margin: 0px auto 15px;" width="500" srcset="https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image2.png?width=250&amp;name=image2.png 250w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image2.png?width=500&amp;name=image2.png 500w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image2.png?width=750&amp;name=image2.png 750w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image2.png?width=1000&amp;name=image2.png 1000w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image2.png?width=1250&amp;name=image2.png 1250w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image2.png?width=1500&amp;name=image2.png 1500w" sizes="(max-width: 500px) 100vw, 500px"></p>
+    <ul>
+    <li>
+    <p><strong>mSATA III, SATA III, and traditional SSDs</strong>: Serial Advanced Technology Attachment (SATA) is an older interface that was designed specifically for storage, with speeds up to 6 GBit/s or about 600 MB per second. SATA is slowly being phased out by NVME, which is significantly faster. However, older PCs or laptops with a hard disk drive would still benefit from an upgrade to a SATA-based SSD.</p>
+    </li>
+    </ul>
+    <p><img loading="lazy" src="https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image1.png?width=400&amp;name=image1.png" alt="image1" style="width: 400px; display: block; margin: 0px auto 10px;" width="400" srcset="https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image1.png?width=200&amp;name=image1.png 200w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image1.png?width=400&amp;name=image1.png 400w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image1.png?width=600&amp;name=image1.png 600w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image1.png?width=800&amp;name=image1.png 800w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image1.png?width=1000&amp;name=image1.png 1000w, https://academy.avast.com/hs-fs/hubfs/New_Avast_Academy/What%20is%20SSD/image1.png?width=1200&amp;name=image1.png 1200w" sizes="(max-width: 400px) 100vw, 400px">SSDs are available in all sorts of storage capacity, starting at around 32 GB and ranging up to 5 TB in the consumer space. (Of course, capacity is significantly higher for enterprise grade storage, with commensurately higher prices.)</p>
+    <p>During the short-lived era of netbooks (remember those? They were cheap, but slow and flimsy), the famous Asus Eee PC series used 1-4 GB of SSDs as storage, from which parts of the operating system were run for faster access. This was the first mainstream use of SSDs. From then on, ultrabooks and eventually desktop PCs started to adopt SSDs. Common sizes today are between 250 GB and 500 GB, which is plenty of space to hold your Windows operating system, the most common programs, and a lot of your personal files.</p>
+    <h2 id="topic-4">History of solid-state drives (SSDs)</h2>
+    <p>For decades, data was stored primarily on mechanical hard drives. These traditional hard disk drives (HDDs) are mostly based on moving parts, like a read/write head that goes back and forth to gather data. This makes HDDs the likeliest computer hardware component to fail.</p>
+    <p>The new solid-state drives work completely differently. They use a simple memory chip called NAND flash memory, which has no moving parts and near-instant access times.</p>
+    <p>Early experiments with SSD-like technology started in the 1950s, and by the 1970s and 1980s they were being used in high-end supercomputers. However, the technology was extremely expensive, and the storage capacity was small (2MB-20MBs) compared to the high 5-digit prices. SSD technology was used occasionally in the military and aerospace sectors, but it wouldn’t be used in consumer devices until the 1990s.</p>
+    <p>In the early 1990s, hardware innovations caused SSD prices to drop. However, the lifespan and size were still an issue — SSDs had a lifespan of about 10 years. It wouldn’t be until the late 2000s that SSDs would start to become more reliable and to provide decades of continuous usage at acceptable access speeds.</p>
+    <p>The memory chips on an SSD are comparable to <a href="https://www.avast.com/c-what-is-ram-memory" rel="noopener">random access memory (RAM)</a>. Instead of a magnetic platter, files are saved on a grid of <a href="https://www.techopedia.com/definition/1099/nand-flash-memory" rel="noopener" target="_blank">NAND flash cells</a>. Each grid (also called blocks) can store between 256 KB and 4MB. The controller of an SSD has the exact address of the blocks, so that when your PC requests a file it is (almost) instantly available. There’s no waiting for a read/write head to find the information it needs. SSD access times are thus measured in nanoseconds.</p>
+    <div class="slider">
+      <div class="slides">
+          <input type="radio" name="radio-btn" id="radio1">
+          <input type="radio" name="radio-btn" id="radio2">
+          <input type="radio" name="radio-btn" id="radio3">
+          <input type="radio" name="radio-btn" id="radio4">
+          <input type="radio" name="radio-btn" id="radio5">
+          <input type="radio" name="radio-btn" id="radio6">
+          <input type="radio" name="radio-btn" id="radio7">
+
+      <!--Slide images begin-->
+          <div class="slide first">
+              <a href="cpu.html"><img src="cpu2.png" alt="CPU"></a>
+          </div>
+          <div class="slide second">
+              <a href="gpu.html"><img src="gpu2.png" alt="GPU"></a>
+          </div>
+          <div class="slide third">
+              <a href="case.html"><img src="pc case2.png" alt="case"></a>
+          </div>
+          <div class="slide forth">
+              <a href="psu.html"></a><img src="psu2.png" alt="psu">
+          </div>
+          <div class="slide fifth">
+            <a href="motherboard.html"></a><img src="motherboard2.png" alt="psu">
+        </div>
+        <div class="slide sixth">
+          <a href="storage.html"></a><img src="storage2.png" alt="psu">
+      </div>
+      <div class="slide seveth">
+        <a href="ram.html"></a><img src="ram2.png" alt="psu">
+    </div>
+              
+      <!--Automatic navigation statrt-->
+          <div class="navigation-auto">
+              <div class="auto-btn1"></div>
+              <div class="auto-btn2"></div>
+              <div class="auto-btn3"></div>
+              <div class="auto-btn4"></div>
+              <div class="auto-btn5"></div>
+              <div class="auto-btn6"></div>
+              <div class="auto-btn7"></div>
+          </div>
+
+      </div>
+  <!--Manual navigation starts-->
+      <div class="navigation-manual">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+          <label for="radio4" class="manual-btn"></label>
+          <label for="radio5" class="manual-btn"></label>
+          <label for="radio6" class="manual-btn"></label>
+          <label for="radio7" class="manual-btn"></label>
+      </div>
+
+      
+  </div>
+</div>
+  <script>
+  //image slider
+var counter = 1;
+setInterval(function(){
+document.getElementById('radio' + counter).checked = true;
+counter++;
+if(counter > 4){
+counter = 1;
+}
+},5000);
+
+window.addEventListener('scroll', function(){
+const header = document.querySelector('header');
+header.classList.toggle('sticky', window.scrollY > 0);
+})
+</script>    
+  </body>
+</html>       

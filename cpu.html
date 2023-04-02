@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <link rel="icon" type="image/x-icon" href="logosmall.png">
+    <title>CPU</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  <style>
+    
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+  </style>
+  <style>
+    body{
+        background-color: black;
+    }
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+    .slider {
+        width: 60vw;
+        height: 100vh;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .slides {
+        width: 800%;
+        height: 500px;
+        display: flex;
+    }
+    .slides input {
+        display: none;
+    }
+    .slide {
+        width: 20%;
+        transition: 2s;
+    }
+    .slide img {
+        width: 800px;
+        height: 500px;
+    }
+    
+    /*manual slide navigation*/
+    
+    .navigation-manual {
+        position: absolute;
+        width: 800px;
+        margin-top: -40px;
+        display: flex;
+        justify-content: center;
+    }
+    .manual-btn {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+    }
+    .manual-btn:not(:last-child) {
+        margin-right: 40px;
+    }
+    
+    .manual-btn:hover {
+        background: white;
+    }
+    
+    #radio1:checked ~ .first {
+        margin-left: 0;
+    }
+    
+    #radio2:checked ~ .first {
+        margin-left: -20%;
+    }
+    
+    #radio3:checked ~ .first {
+        margin-left: -40%;
+    }
+    
+    #radio4:checked ~ .first {
+        margin-left: -60%;
+    }
+    #radio5:checked ~ .first {
+      margin-left: -80%;
+    }
+    #radio6:checked ~ .first {
+      margin-left: -100%;
+    }
+    #radio7:checked ~ .first {
+      margin-left: -120%;
+    }
+    
+    /**auto navigation**/
+    .navigation-auto {
+        position: absolute;
+        display: flex;
+        width: 800px;
+        justify-content: center;
+        margin-top: 460px;
+    }
+    .navigation-auto div {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        transition: 1s;
+    }
+    
+    .navigation-auto div:not(:last-child) {
+        margin-right: 40px; 
+    }
+    
+    #radio1:checked ~ .navigation-auto .auto-btn1 {
+        background: white;
+    }
+    #radio2:checked ~ .navigation-auto .auto-btn2 {
+        background: white;
+    }
+    #radio3:checked ~ .navigation-auto .auto-btn3 {
+        background: white;
+    }
+    #radio4:checked ~ .navigation-auto .auto-btn4 {
+        background: white;
+    }
+    #radio5:checked ~ .navigation-auto .auto-btn5 {
+      background: white;
+  }
+    
+    
+    /*Button on image*/
+    
+    button{
+        padding: 2%;
+        transition: 1s;
+    }
+    
+    /**Stylying button*/
+    
+    /**Main part**/
+    #main {
+        vertical-align: middle;
+        display: inline;
+    }
+    #main h1 { 
+        font-size: 24px; font-weight:400; 
+        color:black; 
+        padding:0; 
+        margin:0;
+    }
+    
+    #main .main-content {
+        background: white; 
+        padding: 60px; 
+        width: 60vw; 
+        left:50%;
+    }
+    #main .main-content-gray {
+        background: #f2f2f2;
+        padding: 60px;
+    }
+    a{
+        text-align: center;
+        align-self: center;
+        text-decoration: none;
+    }
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand" href="#"><img src="logosmall.png" alt="PRIME SYSTEMS"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="final.html">Home <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactme.html">Contact Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="assignmentform.html">Feedback</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="motherboard.html">Motherboard</a>
+                <a class="dropdown-item" href="cpu.html">CPU[Processor]</a>
+                <a class="dropdown-item" href="gpu.html">GPU[Graphics Card]</a>
+                <a class="dropdown-item" href="ram.html"> RAM[Memory]</a>
+                <a class="dropdown-item" href="storage.html">Storage Device [SSD,NVME SSD,HDD]</a>
+                <a class="dropdown-item" href="cooling.html">Cooling[CPU, Chassis]</a>
+                <a class="dropdown-item" href="psu.html">PSU[Power Supply Unit]</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+            CPU
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <img src="cpu.png" alt="picture of diffent types of cpu">
+            <P>Trying to figure out the best CPU for your next PC upgrade or DIY build? With apologies to Robert Frost, it's the classic two roads that parted in the wood—if the wood were a shopping-results page at Newegg or Amazon, and the road kept dividing endlessly. Two roads, splitting into four roads. Then eight. (Better leave breadcrumbs.)</P>
+            <p>Indeed, buying a desktop processor is akin to a whole forest of decision trees. Which of the two big chipmakers should you go with: AMD or Intel? Are you trying to maximize speed or value? Does the maximum number of cores matter more, or does clock speed? Are you upgrading, or building a whole new PC? Are you gaming? Not gaming? Still awake?</p>
+            <p>All these questions are crucial in landing the right chip, and what that means: No single CPU is the absolute best across the board for all users, assuming money matters. It's possible to objectively measure CPU performance across a range of applications and usage cases, and if you're not bound by mere mortal concerns such as budget, it's easy enough to get a pretty good idea of what "best" means.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="true" aria-controls="flush-collapse2">
+            Intel
+          </button>
+        </h2>
+        <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <img src="cpu3.png" alt="picture of diffent types of cpu">
+            <p>But just because these, the processing equivalents of maximum-horsepower V-12 or V-16 engines, exist doesn't make them the right picks for every shopper, or even most shoppers. Other concerns—cost, energy consumption, the kinds of roads you drive every day—matter just as much as out-and-out muscle</p>
+            <p>The best way to look at a CPU buy is to take the considerations in a logical order, which will narrow the field as you make your choices. So, the first big one: Are you upgrading a PC, or building a new one from scratch?</p>
+            <h2>Consideration NO.1 building from scratch or upgrading a current pc?</h2>
+            <p>Answering this question will set you on a narrow path or a broad one. If you're upgrading an existing desktop PC, your CPU upgrade options, by definition, will be limited: by the architecture, socket, and compatibility of the motherboard installed in the PC. If you're willing to swap out the motherboard to step up to a newer or more powerful class of processor, that project becomes, in effect, building your own PC. That's because a motherboard upgrade requires at least partial system disassembly, and sometimes replacing further parts to make the upgrade work.</p>
+            <h2>Often,"In-Place"Upgrades are a waste of time</h2>
+            <p>In most cases with Intel boards, upgrading to another chip that works in the same socket as your current one will have limited upside. In recent years, chip sockets or chipsets are only compatible for a generation or two of CPU, and once that year or two passes, the next platform is no longer compatible with the ones that came before. (Late-model mainstream AMD CPUs, on the company's AM4 socket, have broken that cycle for the moment.) What that means: Unless you're upgrading from a low-end chip early in a platform's lifecycle to a high-end CPU at the very end, you're not likely to gain too much from an in-place CPU upgrade on a dead-end platform.</p>
+            </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="true" aria-controls="flush-collapse3">
+            lifecycles
+          </button>
+        </h2>
+        <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <img src="cpu4.png" alt="picture of spu sockets">
+    <p>In speaking of CPU lifecycles, the key consideration when you're looking to upgrade on an existing motherboard is socket compatibility (that is, the receptacle into which you seat your new CPU). We can't account for every aged or ancient socket that your PC upgrade might involve—there are just too many—but we can say this: It's seldom worth upgrading a CPU on a dead-end socket unless you've gotten a stellar deal on the new chip, and you're making a clear jump forward in core/thread count, or raw clock speed at the same core/thread count, from the old chip to the new.</p>
+    <p>in most cases, if you have a midrange or better CPU on a given dead-end platform, unless you're getting a new chip cheaply, you'll get more bang for your buck buying a new motherboard and processor on a current platform. After all, a new board on Intel's or AMD's mainstream platforms can set you back as little as $50. </p>
+    <h2>Buying basics:</h2>
+    </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="true" aria-controls="flush-collapse4">
+            CORE
+          </button>
+        </h2>
+        <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <img src="buying guide cpu.png" alt="picture of 2 cpu">
+            <p>CORE COUNT. It's a gross oversimplification, but think of core count like engine cylinders; more cores generally indicate more power, all else being equal. </p>
+            <p>Of course, all else is seldom equal, and comparing core count is really meaningful only within the same generation of a given CPU line. That said, more cores are generally better, within reason. If the software you use is multithreaded (this especially applies to modern content-creation and image- and video-editing packages), more cores will help. And some demanding PC games require a certain core or thread count, usually a minimum of four. In descriptions of CPUs, you may see the core/thread count in a sort of shorthand (we'll do so below), for example, 8C/16T, meaning eight cores and 16 threads.</p>
+            <P>MULTITHREADING. Certain Intel and AMD CPUs support multithreading. In a nutshell, multithreading allows your PC to run two discrete processing assignments, or threads, on each CPU core. This doubles the simultaneous processing potential, assuming that the software and operating system are written in a way that can leverage it.</P>
+            <P>Intel calls this technology "Hyper-Threading" (HT), while in the AMD world it's referred to by the generic term "SMT," for symmetric multithreading. Practically speaking, it's the same thing. For CPU-intensive tasks such as video rendering, support for HT/SMT is a very good thing. Note that Intel, with its 9th Generation mainstream Core CPUs for desktops, pushed HT further up its stack than ever before. (Only the Core i9 chips supported HT.) That changed with Intel's 10th Generation Core desktop chips, which returned HT to Core i3, i5, and i7 parts. SMT is supported up and down the mainstream chips in AMD's Ryzen desktop line.</P>
+            <P>LOCKED VERSUS UNLOCKED. A chip that's "unlocked" for overclocking has its clock multiplier open for tweaking within the BIOS or by using in-operating-system overclocking software. The multiplier is locked down on other chips. We've detailed the overclockability of each line below, but in sum: Intel Core X-Series, AMD Ryzen, and AMD Ryzen Threadripper chips are unlocked, while Intel's mainstream Cores are a mix, but mostly locked. More about overclocking, again, near the end of this guide.</P>
+        
+    </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider">
+      <div class="slides">
+          <input type="radio" name="radio-btn" id="radio1">
+          <input type="radio" name="radio-btn" id="radio2">
+          <input type="radio" name="radio-btn" id="radio3">
+          <input type="radio" name="radio-btn" id="radio4">
+          <input type="radio" name="radio-btn" id="radio5">
+          <input type="radio" name="radio-btn" id="radio6">
+          <input type="radio" name="radio-btn" id="radio7">
+
+      <!--Slide images begin-->
+          <div class="slide first">
+              <a href="cpu.html"><img src="cpu2.png" alt="CPU"></a>
+          </div>
+          <div class="slide second">
+              <a href="gpu.html"><img src="gpu2.png" alt="GPU"></a>
+          </div>
+          <div class="slide third">
+              <a href="case.html"><img src="pc case2.png" alt="case"></a>
+          </div>
+          <div class="slide forth">
+              <a href="psu.html"></a><img src="psu2.png" alt="psu">
+          </div>
+          <div class="slide fifth">
+            <a href="motherboard.html"></a><img src="motherboard2.png" alt="psu">
+        </div>
+        <div class="slide sixth">
+          <a href="storage.html"></a><img src="storage2.png" alt="psu">
+      </div>
+      <div class="slide seveth">
+        <a href="ram.html"></a><img src="ram2.png" alt="psu">
+    </div>
+              
+      <!--Automatic navigation statrt-->
+          <div class="navigation-auto">
+              <div class="auto-btn1"></div>
+              <div class="auto-btn2"></div>
+              <div class="auto-btn3"></div>
+              <div class="auto-btn4"></div>
+              <div class="auto-btn5"></div>
+              <div class="auto-btn6"></div>
+              <div class="auto-btn7"></div>
+          </div>
+
+      </div>
+  <!--Manual navigation starts-->
+      <div class="navigation-manual">
+          <label for="radio1" class="manual-btn"></label>
+          <label for="radio2" class="manual-btn"></label>
+          <label for="radio3" class="manual-btn"></label>
+          <label for="radio4" class="manual-btn"></label>
+          <label for="radio5" class="manual-btn"></label>
+          <label for="radio6" class="manual-btn"></label>
+          <label for="radio7" class="manual-btn"></label>
+      </div>
+
+      
+  </div>
+</div>
+  <script>
+  //image slider
+var counter = 1;
+setInterval(function(){
+document.getElementById('radio' + counter).checked = true;
+counter++;
+if(counter > 4){
+counter = 1;
+}
+},5000);
+
+window.addEventListener('scroll', function(){
+const header = document.querySelector('header');
+header.classList.toggle('sticky', window.scrollY > 0);
+})
+</script>
+  </body>
+</html>

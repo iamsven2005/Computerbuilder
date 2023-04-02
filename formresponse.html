@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    
+    <link rel="icon" type="image/x-icon" href="logosmall.png">
+<title>Form Processor</title>
+<style>
+	body {
+		text-align:center;
+	  }
+	  header {
+		text-align: center;
+		position: relative;
+	  }
+	  ul {
+		text-align: center;
+		position: relative;
+	  }
+	  body {
+		font-family: Verdana, sans-serif;
+		color: #fff;
+	  }
+	  html, body {
+		background-color: #6be0ad;
+		text-align: center;
+		font-family: Bahnschrift;
+		min-width: 320px;
+		font-size: 25px;
+	  }
+	  
+	  header {
+		font-size: 50px;
+		font-weight: bold;
+		margin: 20px;
+	  }
+	  
+	  #form-outer {
+		background-color: white;
+		margin: 0 auto;
+		border-radius: 4px;
+		width: 75%;
+		max-width: 900px;
+		padding: 10px;
+		padding-top: 20px;
+		border-radius: 30px;
+	  }
+	  
+	  .labels {
+		display: inline-block;
+		text-align: right;
+		width: 40%;
+		padding: 5px;
+		vertical-align: top;
+		margin-top: 10px;
+	  }
+	  
+	  .rightTab {
+		display: inline-block;
+		text-align: left;
+		width: 48%;
+		vertical-align: middle;
+	  }
+	  
+	  .input-field {
+		height: 20px;
+		width: 280px;
+		padding: 5px;
+		margin: 10px;
+		border: 1px solid #c0c0c0;
+		border-radius: 2px;
+	  }
+	  
+	  #userAge {
+		width: 40px;
+	  }
+	  
+	  .userRatings,
+	  input[type="checkbox"] {
+		float: left;
+		margin-right: 5px;
+	  }
+	  
+	  #submit {
+		background-color: #e59400;
+		border-radius: 4px;
+		color: white;
+		font-size: 1em;
+		height: 40px;
+		width: 96px;
+		margin: 10px;
+		border: 0px solid;
+	  }
+	  
+	  .dropdown {
+		height: 35px;
+		width: 140px;
+		padding: 5px;
+		margin: 10px;
+		margin-top: 15px;
+		border: 1px solid #c0c0c0;
+		border-radius: 2px;
+	  }
+	  
+	  .radio, .checkbox {
+		position: relative;
+		left: -43px;
+		margin-left: 10px;
+		display: block;
+		padding-bottom: 10px;
+	  }
+	  
+	  @media screen and (max-width: 833px) {
+		.input-field {
+		  width: 80%;
+		}
+		select {
+		  width: 90%;
+		}
+	  }
+	  
+	  @media screen and (max-width: 520px) {
+		.labels {
+		  width: 100%;
+		  text-align: left;
+		}
+		.rightTab {
+		  width: 80%;
+		  float: left;
+		}
+		.input-field {
+		  width: 100%;
+		}
+		select {
+		  width: 100%;
+		}
+	  }
+	  html, body {
+		background-color: #6be0ad;
+		text-align: center;
+		font-family: Bahnschrift;
+		min-width: 320px;
+		font-size: 25px;
+	  }
+	  
+	  header {
+		font-size: 50px;
+		font-weight: bold;
+		margin: 20px;
+	  }
+	  
+	  #form-outer {
+		background-color: white;
+		margin: 0 auto;
+		border-radius: 4px;
+		width: 75%;
+		max-width: 900px;
+		padding: 10px;
+		padding-top: 20px;
+		border-radius: 30px;
+	  }
+	  
+	  .labels {
+		display: inline-block;
+		text-align: right;
+		width: 40%;
+		padding: 5px;
+		vertical-align: top;
+		margin-top: 10px;
+	  }
+	  
+	  .rightTab {
+		display: inline-block;
+		text-align: left;
+		width: 48%;
+		vertical-align: middle;
+	  }
+	  
+	  .input-field {
+		height: 20px;
+		width: 280px;
+		padding: 5px;
+		margin: 10px;
+		border: 1px solid #c0c0c0;
+		border-radius: 2px;
+	  }
+	  
+	  #userAge {
+		width: 40px;
+	  }
+	  
+	  .userRatings,
+	  input[type="checkbox"] {
+		float: left;
+		margin-right: 5px;
+	  }
+	  
+	  #submit {
+		background-color: #e59400;
+		border-radius: 4px;
+		color: white;
+		font-size: 1em;
+		height: 40px;
+		width: 96px;
+		margin: 10px;
+		border: 0px solid;
+	  }
+	  
+	  .dropdown {
+		height: 35px;
+		width: 140px;
+		padding: 5px;
+		margin: 10px;
+		margin-top: 15px;
+		border: 1px solid #c0c0c0;
+		border-radius: 2px;
+	  }
+	  
+	  .radio, .checkbox {
+		position: relative;
+		left: -43px;
+		margin-left: 10px;
+		display: block;
+		padding-bottom: 10px;
+	  }
+	  
+	  @media screen and (max-width: 833px) {
+		.input-field {
+		  width: 80%;
+		}
+		select {
+		  width: 90%;
+		}
+	  }
+	  
+	  @media screen and (max-width: 520px) {
+		.labels {
+		  width: 100%;
+		  text-align: left;
+		}
+		.rightTab {
+		  width: 80%;
+		  float: left;
+		}
+		.input-field {
+		  width: 100%;
+		}
+		select {
+		  width: 100%;
+		}
+	  }
+</style>
+</head>
+<body>
+<script type="text/javascript">
+<!-- HIDE FROM INCOMPATIBLE BROWSERS
+document.write("<h1>Your form has been submitted!</h1><h2>You entered the following data:</h2>");
+var formData = location.search;
+
+formData = formData.substring(1, formData.length);
+while (formData.indexOf("+") != -1) {
+	formData = formData.replace("+", " ");
+}
+formData = unescape(formData);
+var formArray = formData.split("&");
+for (var i=0; i < formArray.length; ++i) {
+	document.writeln(formArray[i] + "<br />");
+}
+// STOP HIDING FROM INCOMPATIBLE BROWSERS -->
+</script>
+</body>
+</html>

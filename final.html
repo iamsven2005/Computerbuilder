@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <link rel="icon" type="image/x-icon" href="logosmall.png">
+    <title>HOME</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  <style>
+    body{
+        background-color: black;
+    }
+    p{
+     color:white
+    }
+    .collapsed{
+      background-color: black;
+    }
+    h2{
+      color:white;
+    }
+    .accordion-button{
+      background-color: black;
+      color:white;
+    }
+    .accordion-collapse{
+      background-color: black;
+    }
+    .slider {
+        width: 60vw;
+        height: 100vh;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .slides {
+        width: 800%;
+        height: 500px;
+        display: flex;
+    }
+    .slides input {
+        display: none;
+    }
+    .slide {
+        width: 20%;
+        transition: 2s;
+    }
+    .slide img {
+        width: 800px;
+        height: 500px;
+    }
+    
+    /*manual slide navigation*/
+    
+    .navigation-manual {
+        position: absolute;
+        width: 800px;
+        margin-top: -40px;
+        display: flex;
+        justify-content: center;
+    }
+    .manual-btn {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 1s;
+    }
+    .manual-btn:not(:last-child) {
+        margin-right: 40px;
+    }
+    
+    .manual-btn:hover {
+        background: white;
+    }
+    
+    #radio1:checked ~ .first {
+        margin-left: 0;
+    }
+    
+    #radio2:checked ~ .first {
+        margin-left: -20%;
+    }
+    
+    #radio3:checked ~ .first {
+        margin-left: -40%;
+    }
+    
+    #radio4:checked ~ .first {
+        margin-left: -60%;
+    }
+    #radio5:checked ~ .first {
+      margin-left: -80%;
+    }
+    #radio6:checked ~ .first {
+      margin-left: -100%;
+    }
+    #radio7:checked ~ .first {
+      margin-left: -120%;
+    }
+    
+    /**auto navigation**/
+    .navigation-auto {
+        position: absolute;
+        display: flex;
+        width: 800px;
+        justify-content: center;
+        margin-top: 460px;
+    }
+    .navigation-auto div {
+        border: 2px solid white;
+        padding: 5px;
+        border-radius: 10px;
+        transition: 1s;
+    }
+    
+    .navigation-auto div:not(:last-child) {
+        margin-right: 40px; 
+    }
+    
+    #radio1:checked ~ .navigation-auto .auto-btn1 {
+        background: white;
+    }
+    #radio2:checked ~ .navigation-auto .auto-btn2 {
+        background: white;
+    }
+    #radio3:checked ~ .navigation-auto .auto-btn3 {
+        background: white;
+    }
+    #radio4:checked ~ .navigation-auto .auto-btn4 {
+        background: white;
+    }
+    #radio5:checked ~ .navigation-auto .auto-btn5 {
+      background: white;
+  }
+    
+    
+    /*Button on image*/
+    
+    button{
+        padding: 2%;
+        transition: 1s;
+    }
+    
+    /**Stylying button*/
+    
+    /**Main part**/
+    #main {
+        vertical-align: middle;
+        display: inline;
+    }
+    #main h1 { 
+        font-size: 24px; font-weight:400; 
+        color:black; 
+        padding:0; 
+        margin:0;
+    }
+    
+    #main .main-content {
+        background: white; 
+        padding: 60px; 
+        width: 60vw; 
+        left:50%;
+    }
+    #main .main-content-gray {
+        background: #f2f2f2;
+        padding: 60px;
+    }
+    a{
+        text-align: center;
+        align-self: center;
+        text-decoration: none;
+    }
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand" href="#"><img src="logosmall.png" alt="PRIME SYSTEMS"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="final.html">Home <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactme.html">Contact Me</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="assignmentform.html">Feedback</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="motherboard.html">Motherboard</a>
+                <a class="dropdown-item" href="cpu.html">CPU[Processor]</a>
+                <a class="dropdown-item" href="gpu.html">GPU[Graphics Card]</a>
+                <a class="dropdown-item" href="ram.html"> RAM[Memory]</a>
+                <a class="dropdown-item" href="storage.html">Storage Device [SSD,NVME SSD,HDD]</a>
+                <a class="dropdown-item" href="cooling.html">Cooling[CPU, Chassis]</a>
+                <a class="dropdown-item" href="psu.html">PSU[Power Supply Unit]</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header>
+        <br><br><br>
+        <h1>PRIME SYSTEMS</h1>
+      </header>
+      <style>
+        body {
+        margin: 0;
+        padding-top: 250px;
+      }
+      header {
+        width: 100%;
+        height: 250px;
+        background: url('WhatsApp Image 2022-07-24 at 18.58.57.jpeg') no-repeat;
+        background-size: 100%;
+        background-position: 0 -300px;
+        -webkit-animation: banner 10s infinite forwards;
+        -webkit-animation-delay: 2s;
+      }
+      header  h1 {
+        padding: 0;
+        text-align: center;
+        font: 5em monospace;
+      }
+      header, .main-nav-scrolled {
+        top: 0;
+        position: fixed;
+        width: 100%;
+      }
+      h2 {
+        -webkit-column-span: all;
+      }
+      @-webkit-keyframes banner {
+        25%  { background: url('WhatsApp Image 2022-07-24 at 18.58.57 (1).jpeg');
+        background-size: 100%;
+        background-position: 0 -200px;
+        }
+        50%  { background: url('WhatsApp Image 2022-07-24 at 18.58.57 (2).jpeg');
+        background-size: 100%;
+        }
+        75%  { background: url('WhatsApp Image 2022-07-24 at 18.58.57.jpeg');
+        background-size: 100%;
+        background-position: 0 -400px;
+        }
+      }
+      .spacer{
+        height:20vh;
+        width:100vw;
+        background-color: black;
+        text-align: center;
+        color:white;
+      }
+      </style>
+      <script>
+        var  mn = $("nav");
+          mns = "main-nav-scrolled";
+      
+      $(window).scroll(function() {
+        if( $(this).scrollTop() > 250 ) {
+          mn.addClass(mns);
+        }
+        else {
+          mn.removeClass(mns);
+        }
+      });
+      
+      $(function(){
+        $('#container').masonry({
+          itemSelector : '.item',
+          columnWidth : 440
+        });
+      });
+        </script>
+        <div class="div1">
+            <p> So why own a pc? Personal Computer also commonly known as PC have been around for almost 4 decades.It is a must have in every household regardless of your background as it serves many purposes
+            like providing individuals with the ability to search for information on the web to providing them with entertainment through gaming or streaming of videos.</p>
+            <img src="pc setup.png" alt="">
+            <p> Building your own Computer from individual PC Components has so many benefits compared to just going out and buying a pre-built PC.The anticipation of the individual parts being delivered to your house, the shiny boxes with all the different components in them, not to mention researching what parts you actually need, which you are doing right now!</p>
+            <img src="pc components.png" alt="">
+            <p>By building your own Computer you gain a lot of insight into the inner workings of Hardware Components and how everything fits together.You will be able to troubleshoot if any problems arise later on much easier, than when you have no clue what is actually going on inside your PC’s Case.Knowing the ins and outs of assembling a Computer and what Parts a Computer needs will also let you <a href="" target="_self">upgrade your pc in the future</a></p>
+            <p>You can optimize by buying the best parts for your specific workloads, be it Gaming, 3D Rendering, Modeling, Graphic Design, Video Editing or so many other purposes you can use a Computer for.Building your own computer also is a lot cheaper than getting a pre-built PC. You can usually save around 30% in Cost when researching, buying the PC Components individually, and assembling them yourself.And the best of it all, building a Computer is so easy, it’s kind of interesting that not more people are doing it!</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BL4DCEp7blY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+            <p>Anyway, we now definitely know that we are on the right track by looking into building our own Computer, that’s probably why you came here in the first place.If you already have a grasp on what general type of Computer you need, what specific Parts do you need to build a PC?</p>
+            </div>
+            <div class="haha">
+                
+                <div class="spacer"><h1><br>OUR PAGES</h1></div><br><br><br>
+            <div class="slider">
+                <div class="slides">
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                    <input type="radio" name="radio-btn" id="radio5">
+                    <input type="radio" name="radio-btn" id="radio6">
+                    <input type="radio" name="radio-btn" id="radio7">
+        
+                <!--Slide images begin-->
+                    <div class="slide first">
+                        <a href="cpu.html"><img src="cpu2.png" alt="CPU"></a>
+                    </div>
+                    <div class="slide second">
+                        <a href="gpu.html"><img src="gpu2.png" alt="GPU"></a>
+                    </div>
+                    <div class="slide third">
+                        <a href="case.html"><img src="pc case2.png" alt="case"></a>
+                    </div>
+                    <div class="slide forth">
+                        <a href="psu.html"></a><img src="psu2.png" alt="psu">
+                    </div>
+                    <div class="slide fifth">
+                      <a href="motherboard.html"></a><img src="motherboard2.png" alt="psu">
+                  </div>
+                  <div class="slide sixth">
+                    <a href="storage.html"></a><img src="storage2.png" alt="psu">
+                </div>
+                <div class="slide seveth">
+                  <a href="ram.html"></a><img src="ram2.png" alt="psu">
+              </div>
+                        
+                <!--Automatic navigation statrt-->
+                    <div class="navigation-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                        <div class="auto-btn4"></div>
+                        <div class="auto-btn5"></div>
+                        <div class="auto-btn6"></div>
+                        <div class="auto-btn7"></div>
+                    </div>
+        
+                </div>
+            <!--Manual navigation starts-->
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                    <label for="radio5" class="manual-btn"></label>
+                    <label for="radio6" class="manual-btn"></label>
+                    <label for="radio7" class="manual-btn"></label>
+                </div>
+        
+                
+            </div>
+        </div>
+            <script>
+            //image slider
+var counter = 1;
+setInterval(function(){
+    document.getElementById('radio' + counter).checked = true;
+    counter++;
+    if(counter > 4){
+        counter = 1;
+    }
+},5000);
+
+window.addEventListener('scroll', function(){
+    const header = document.querySelector('header');
+    header.classList.toggle('sticky', window.scrollY > 0);
+})
+</script>
+  </body>
+</html>
